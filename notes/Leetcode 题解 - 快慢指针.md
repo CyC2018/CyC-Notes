@@ -1,6 +1,6 @@
 <!-- GFM-TOC -->
-* [1. LinkedList Cycle](#1-环形链表)
-* [2. Linked List Cycle II](#2-环形链表 II)
+* [1. Linked List Cycle](#1-环形链表)
+* [2. Linked List Cycle II](#2-环形链表2)
 * [3. Happy Number](#3-快乐数)
 * [4. Middle of the LinkedList](#4-链表的中间结点)
 <!-- GFM-TOC -->
@@ -32,7 +32,7 @@ public class Solution {
 }
 ```
 
-# 2. 环形链表 II
+# 2. 环形链表2
 	
 142\. Linked List Cycle II (Medium)
 
