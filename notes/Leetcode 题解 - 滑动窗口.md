@@ -1,100 +1,295 @@
 <!-- GFM-TOC -->
-* [1. Maximum Sum Subarray of Size K (easy)](#1-有序数组的-two-sum)
-* [2. Smallest Subarray with a given sum (easy)](#2-两数平方和)
-* [3. Longest Substring with K Distinct Characters](#3-反转字符串中的元音字符)
-* [4. Fruits into Baskets (medium)](#4-回文字符串)
-* [5. No-repeat Substring (hard)](#5-归并两个有序数组)
-* [6. Longest Substring with Same Letters after Replacement (hard)](#6-判断链表是否存在环)
-* [7. Longest Subarray with Ones after Replacement (hard)](#7-最长子序列)
+* [1. Find All Anagrams in a String](#1-找到字符串中所有字母异位词)
+* [2. Minimum Window Substring](#2-最小覆盖子串)
+* [3. Longest Substring Without Repeating Characters](#3-无重复字符的最长子串)
+* [4. Substring with Concatenation of All Words](#4-串联所有单词的子串)
+* [5. Longest Substring with At Most Two Distinct Characters](#5-至多包含两个不同字符的最长子串)
+* [6. Longest Substring with At Most K Distinct Characters](#6-至多包含K个不同字符的最长子串)
 <!-- GFM-TOC -->
 
+https://zhuanlan.zhihu.com/p/90664857
+https://www.jianshu.com/p/869f6d00d962
+https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.
 
-双指针主要用于遍历数组，两个指针指向不同的元素，从而协同完成任务。
+# 1. 找到字符串中所有字母异位词
 
-# 1. 有序数组的 Two Sum
+438\. Find All Anagrams in a String (Medium)
 
-167\. Two Sum II - Input array is sorted (Easy)
-
-[Leetcode](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/) / [力扣](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/)
-
-```html
-Input: numbers={2, 7, 11, 15}, target=9
-Output: index1=1, index2=2
-```
-
-题目描述：在有序数组中找出两个数，使它们的和为 target。
-
-使用双指针，一个指针指向值较小的元素，一个指针指向值较大的元素。指向较小元素的指针从头向尾遍历，指向较大元素的指针从尾向头遍历。
-
-- 如果两个指针指向元素的和 sum == target，那么得到要求的结果；
-- 如果 sum > target，移动较大的元素，使 sum 变小一些；
-- 如果 sum < target，移动较小的元素，使 sum 变大一些。
-
-数组中的元素最多遍历一次，时间复杂度为 O(N)。只使用了两个额外变量，空间复杂度为  O(1)。
-
-<div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/437cb54c-5970-4ba9-b2ef-2541f7d6c81e.gif" width="200px"> </div><br>
+[Leetcode](https://leetcode.com/problems/find-all-anagrams-in-a-string/) / [力扣](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
 
 ```java
-public int[] twoSum(int[] numbers, int target) {
-    if (numbers == null) return null;
-    int i = 0, j = numbers.length - 1;
-    while (i < j) {
-        int sum = numbers[i] + numbers[j];
-        if (sum == target) {
-            return new int[]{i + 1, j + 1};
-        } else if (sum < target) {
-            i++;
-        } else {
-            j--;
+public class Solution {
+    public List<Integer> findAnagrams(String s, String t) {
+        List<Integer> result = new LinkedList<>();
+        if(t.length()> s.length()) return result;
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c : t.toCharArray()){
+            map.put(c, map.getOrDefault(c, 0) + 1);
         }
+        int counter = map.size();
+        
+        int begin = 0, end = 0;
+        int head = 0;
+        int len = Integer.MAX_VALUE;
+        
+        
+        while(end < s.length()){
+            char c = s.charAt(end);
+            if( map.containsKey(c) ){
+                map.put(c, map.get(c)-1);
+                if(map.get(c) == 0) counter--;
+            }
+            end++;
+            
+            while(counter == 0){
+                char tempc = s.charAt(begin);
+                if(map.containsKey(tempc)){
+                    map.put(tempc, map.get(tempc) + 1);
+                    if(map.get(tempc) > 0){
+                        counter++;
+                    }
+                }
+                if(end-begin == t.length()){
+                    result.add(begin);
+                }
+                begin++;
+            }
+            
+        }
+        return result;
     }
-    return null;
 }
 ```
 
-# 2. 两数平方和
+# 2. 最小覆盖子串
 
-633\. Sum of Square Numbers (Easy)
+76\. Minimum Window Substring (Hard)
 
-[Leetcode](https://leetcode.com/problems/sum-of-square-numbers/description/) / [力扣](https://leetcode-cn.com/problems/sum-of-square-numbers/description/)
+[Leetcode](https://leetcode.com/problems/minimum-window-substring/) / [力扣](https://leetcode-cn.com/problems/minimum-window-substring/)
 
-```html
-Input: 5
-Output: True
-Explanation: 1 * 1 + 2 * 2 = 5
-```
-
-题目描述：判断一个非负整数是否为两个整数的平方和。
-
-可以看成是在元素为 0\~target 的有序数组中查找两个数，使得这两个数的平方和为 target，如果能找到，则返回 true，表示 target 是两个整数的平方和。
-
-本题和 167\. Two Sum II - Input array is sorted 类似，只有一个明显区别：一个是和为 target，一个是平方和为 target。本题同样可以使用双指针得到两个数，使其平方和为 target。
-
-本题的关键是右指针的初始化，实现剪枝，从而降低时间复杂度。设右指针为 x，左指针固定为 0，为了使 0<sup>2</sup> + x<sup>2</sup> 的值尽可能接近 target，我们可以将 x 取为 sqrt(target)。
-
-因为最多只需要遍历一次 0\~sqrt(target)，所以时间复杂度为 O(sqrt(target))。又因为只使用了两个额外的变量，因此空间复杂度为 O(1)。
 
 ```java
- public boolean judgeSquareSum(int target) {
-     if (target < 0) return false;
-     int i = 0, j = (int) Math.sqrt(target);
-     while (i <= j) {
-         int powSum = i * i + j * j;
-         if (powSum == target) {
-             return true;
-         } else if (powSum > target) {
-             j--;
-         } else {
-             i++;
-         }
-     }
-     return false;
- }
+public class Solution {
+    public String minWindow(String s, String t) {
+        if(t.length()> s.length()) return "";
+        Map<Character, Integer> map = new HashMap<>();
+        for(char c : t.toCharArray()){
+            map.put(c, map.getOrDefault(c,0) + 1);
+        }
+        int counter = map.size();
+        
+        int begin = 0, end = 0;
+        int head = 0;
+        int len = Integer.MAX_VALUE;
+        
+        while(end < s.length()){
+            char c = s.charAt(end);
+            if( map.containsKey(c) ){
+                map.put(c, map.get(c)-1);
+                if(map.get(c) == 0) counter--;
+            }
+            end++;
+            
+            while(counter == 0){
+                char tempc = s.charAt(begin);
+                if(map.containsKey(tempc)){
+                    map.put(tempc, map.get(tempc) + 1);
+                    if(map.get(tempc) > 0){
+                        counter++;
+                    }
+                }
+                if(end-begin < len){
+                    len = end - begin;
+                    head = begin;
+                }
+                begin++;
+            }
+            
+        }
+        if(len == Integer.MAX_VALUE) return "";
+        return s.substring(head, head+len);
+    }
+}
+```
+
+# 3. 无重复字符的最长子串
+
+3\. Longest Substring Without Repeating Characters (Medium)
+
+[Leetcode](https://leetcode.com/problems/longest-substring-without-repeating-characters/) / [力扣](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+
+
+```java
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int begin = 0, end = 0, counter = 0, d = 0;
+
+        while (end < s.length()) {
+            // > 0 means repeating character
+            //if(map[s.charAt(end++)]-- > 0) counter++;
+            char c = s.charAt(end);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+            if(map.get(c) > 1) counter++;
+            end++;
+            
+            while (counter > 0) {
+                //if (map[s.charAt(begin++)]-- > 1) counter--;
+                char charTemp = s.charAt(begin);
+                if (map.get(charTemp) > 1) counter--;
+                map.put(charTemp, map.get(charTemp)-1);
+                begin++;
+            }
+            d = Math.max(d, end - begin);
+        }
+        return d;
+    }
+}
+```
+
+# 4. 串联所有单词的子串
+
+30\. Substring with Concatenation of All Words (Hard)
+
+[Leetcode](https://leetcode.com/problems/substring-with-concatenation-of-all-words/) / [力扣](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)
+
+
+```java
+public class Solution {
+    public List<Integer> findSubstring(String S, String[] L) {
+        List<Integer> res = new LinkedList<>();
+        if (L.length == 0 || S.length() < L.length * L[0].length())   return res;
+        int N = S.length();
+        int M = L.length; // *** length
+        int wl = L[0].length();
+        Map<String, Integer> map = new HashMap<>(), curMap = new HashMap<>();
+        for (String s : L) {
+            if (map.containsKey(s))   map.put(s, map.get(s) + 1);
+            else                      map.put(s, 1);
+        }
+        String str = null, tmp = null;
+        for (int i = 0; i < wl; i++) {
+            int count = 0;  // remark: reset count 
+            int start = i;
+            for (int r = i; r + wl <= N; r += wl) {
+                str = S.substring(r, r + wl);
+                if (map.containsKey(str)) {
+                    if (curMap.containsKey(str))   curMap.put(str, curMap.get(str) + 1);
+                    else                           curMap.put(str, 1);
+                    
+                    if (curMap.get(str) <= map.get(str))    count++;
+                    while (curMap.get(str) > map.get(str)) {
+                        tmp = S.substring(start, start + wl);
+                        curMap.put(tmp, curMap.get(tmp) - 1);
+                        start += wl;
+                        
+                        //the same as https://leetcode.com/problems/longest-substring-without-repeating-characters/
+                        if (curMap.get(tmp) < map.get(tmp)) count--;
+                        
+                    }
+                    if (count == M) {
+                        res.add(start);
+                        tmp = S.substring(start, start + wl);
+                        curMap.put(tmp, curMap.get(tmp) - 1);
+                        start += wl;
+                        count--;
+                    }
+                }else {
+                    curMap.clear();
+                    count = 0;
+                    start = r + wl;//not contain, so move the start
+                }
+            }
+            curMap.clear();
+        }
+        return res;
+    }
+}
+```
+
+# 5. 至多包含两个不同字符的最长子串
+
+159\. Longest Substring with At Most Two Distinct Characters (Medium)
+
+[Leetcode](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/) / [力扣](https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/)
+
+
+```java
+public class Solution {
+    public int lengthOfLongestSubstringTwoDistinct(String s) {
+        Map<Character,Integer> map = new HashMap<>();
+        int start = 0, end = 0, counter = 0, len = 0;
+        while(end < s.length()){
+            char c = s.charAt(end);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+            if(map.get(c) == 1) counter++;//new char
+            end++;
+            while(counter > 2){
+                char cTemp = s.charAt(start);
+                map.put(cTemp, map.get(cTemp) - 1);
+                if(map.get(cTemp) == 0){
+                    counter--;
+                }
+                start++;
+            }
+            len = Math.max(len, end-start);
+        }
+        return len;
+    }
+}
+```
+
+# 6. 至多包含K个不同字符的最长子串
+
+340\. Longest Substring with At Most K Distinct Characters (Hard)
+
+[Leetcode](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) / [力扣](https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters/)
+
+Given a string, find the length of the longest substring T that contains at mostk distinct characters.
+For example,Given s = “eceba” and k = 2,
+T is "ece" which its length is 3.
+
+```java
+public class Solution {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if(s == null || s.length() == 0 || k <= 0) {
+            return 0;
+        }
+        
+        char[] ss = s.toCharArray();
+        int[] scount = new int[256];
+        int count = 0;
+        int res = 0;
+        int j = 0;
+        // 同向双指针模板；
+        for(int i = 0; i < s.length(); i++) {
+            while(j < s.length() && count <= k) {
+                // j move到即将要超过k的时候，停下来，scount[ss[j]]不做任何事情；
+                // 等待下一次while循环，j就可以update了；
+                if(scount[ss[j]] == 0) {
+                    if(count == k){
+                        break;
+                    }
+                    count++;
+                }
+                scount[ss[j]]++;
+                j++;
+            }
+            
+            res = Math.max(res, j - i);
+            
+            //update i;
+            scount[ss[i]]--;
+            if(scount[ss[i]] == 0) {
+                count--;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 
 
 
 
-
-<div align="center"><img width="320px" src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/githubio/公众号二维码-2.png"></img></div>
