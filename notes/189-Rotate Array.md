@@ -121,6 +121,7 @@ class Solution {
 9. 空间复杂度为O(1)很明显没有创建其他数组。
 
 [出处](https://leetcode.com/problems/rotate-array/discuss/54263/3-lines-of-c-in-one-pass-using-swap)
+
 Rotating k steps to the right would move the last (n-k) elements to the front, so [6,7,8] are moved to their final position in the 1st iteration.
 
 Now, since [6,7,8] are fixed, we only have to consider about other elements (i.e. [4,5,1,2,3]), that is why (n-=k, nums+=k).
