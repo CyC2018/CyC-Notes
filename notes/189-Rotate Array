@@ -34,6 +34,45 @@ class Solution {
     }
 }
 ```
+recursion way
+```java
+class Solution {
+    private int cnt = 0;
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        // start of the loop
+        int start = 0;
+        // pointer
+        int cur = start;
+        // get into the recursion
+        helper(nums, k, start, cur, nums[cur]);
+    }
+    
+    private void helper(int[] nums, int k, int start, int cur, int temp1) {
+        if (cnt == nums.length || k == 0) return;
+        // the next position
+        int next = (cur + k) % nums.length;
+        // save that value before covering it
+        int temp2 = nums[next];
+        // cover it with previous value
+        nums[next] = temp1;
+        // update previous value
+        temp1 = temp2;
+        // update pointer
+        cur = next;
+        // increase the counter, each recursion we put a number into its target position
+        cnt++;
+        // if there's a loop we start with the next position, also update pointer and temp1
+        if (cur == start) {
+            start++;
+            cur = start;
+            temp1 = nums[cur];
+        }
+        // go to the next recursion
+        helper(nums, k, start, cur, temp1);
+    }
+}
+```
 
 ## triple reverse
 
