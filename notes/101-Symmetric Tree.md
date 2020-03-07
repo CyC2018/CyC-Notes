@@ -16,7 +16,7 @@ class Solution {
     }
 }
 ```
-## iteration : two queues
+## iteration : two queues or two stacks (popping out order does not matter)
 
 ```java
 class Solution {
