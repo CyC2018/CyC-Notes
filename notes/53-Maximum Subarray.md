@@ -18,7 +18,7 @@ public class Solution {
     public int maxSubArray(int[] nums) {
         int res = Integer.MIN_VALUE, curSum = 0;
         for (int num : nums) {
-            curSum = Math.max(curSum + num, num);
+            curSum = Math.max(curSum + num, num); // 也可以为 curSum = curSum < 0 ? num : curSum + num;
             res = Math.max(res, curSum);
         }
         return res;
