@@ -1,0 +1,60 @@
+[Leetcode](https://leetcode.com/problems/validate-binary-search-tree/)
+
+这道题让求最大子数组之和，并且要用两种方法来解，分别是 O(n) 的解法，还有用分治法 Divide and Conquer Approach，这个解法的时间复杂度是 O(nlgn)
+
+## dynamic programming
+
+1. 定义两个变量 res 和 curSum，其中 res 保存最终要返回的结果，即最大的子数组之和，curSum 初始值为0，
+2. 每遍历一个数字 num，比较 curSum + num 和 num 中的较大值存入 curSum，然后再把 res 和 curSum 中的较大值存入 res。
+3. 以此类推直到遍历完整个数组，可得到最大子数组的值存在 res 中。
+
+最关键的点是，很简单粗暴，就两种情况。
+
+第一种，curSum对我有益处，我就要它。
+第二种，curSum对我有坏处，拖累我，就不要它。（我当前的curSum+num如果还没有num大，curSum是负数，拖后腿了，我宁可不要，从num重新开始）
+
+```java
+public class Solution {
+    public int maxSubArray(int[] nums) {
+        int res = Integer.MIN_VALUE, curSum = 0;
+        for (int num : nums) {
+            curSum = Math.max(curSum + num, num);
+            res = Math.max(res, curSum);
+        }
+        return res;
+    }
+}
+```
+## divide and conquer
+题目还要求我们用分治法 Divide and Conquer Approach 来解，这个分治法的思想就类似于二分搜索法。
+
+1. 先以中间为起点，把数组一分为二，向两边分别扫描，先向左扫计算数组和，同时更新目前最大的数组和，然后记住这个最大值，再向右扫，这样两边的最大值加起来就是整个数组的和最大值。
+2. 但这样还不全面，因为你怎么知道从中间开始是最优呢，说不定左边所有数都是负数呢，就拖后腿了，这样还不如全舍弃。
+3. 所以我们用recursion方法，我不仅要求我这个数组的最大值，我还要递归到我左半边的，右半边的，看他们的最大值有没有我大，取最大的那个作为结果。
+4. 就这样递归下去直到不可分为止。
+
+```java
+public class Solution {
+    public int maxSubArray(int[] nums) {
+        if (nums.length == 0) return 0;
+        return helper(nums, 0, nums.length - 1);
+    }
+    public int helper(int[] nums, int left, int right) {
+        if (left >= right) return nums[left];
+        int mid = left + (right - left) / 2;
+        int lmax = helper(nums, left, mid - 1);
+        int rmax = helper(nums, mid + 1, right);
+        int mmax = nums[mid], t = mmax;
+        for (int i = mid - 1; i >= left; --i) {
+            t += nums[i];
+            mmax = Math.max(mmax, t);
+        }
+        t = mmax;
+        for (int i = mid + 1; i <= right; ++i) {
+            t += nums[i];
+            mmax = Math.max(mmax, t);
+        }
+        return Math.max(mmax, Math.max(lmax, rmax));
+    }
+}
+```
