@@ -1,4 +1,4 @@
-[Leetcode](https://leetcode.com/problems/validate-binary-search-tree/)
+[Leetcode](https://leetcode.com/problems/grumpy-bookstore-owner/)
 
 ## recursion + upper and lower bound
 
