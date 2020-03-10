@@ -1,4 +1,4 @@
-[Leetcode](https://leetcode.com/problems/validate-binary-search-tree/)
+[Leetcode](https://www.lintcode.com/problem/longest-substring-with-at-most-two-distinct-characters/description)
 
 ## recursion + upper and lower bound
 
