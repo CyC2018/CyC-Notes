@@ -1,6 +1,6 @@
 [Leetcode](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
-## hashmap(char-last index) + sliding window
+## hashmap(char-last index found by right pointer) + sliding window
 
 1. 建立hashmap，每个字符对应其最后出现位置的index。
 2. 建立滑动窗口，两个指针，left为-1，rgiht为0，这样是左开右闭区间(left, right]，所以最后的时候可以更新窗口大小为right-left。
@@ -27,7 +27,7 @@ public class Solution {
 }
 ```
 
-## int array + sliding window
+## int array(to record last index of repeating char found by right pointer) + sliding window
 
 这里我们可以建立一个128长度大小的整型数组来代替hashmap，这样做的原因是ASCII表共能表示256个字符，但是由于键盘只能表示128个字符，所以用128也行，然后全部初始化为-1，这样的好处是不用像之前的hashmap一样要查找当前字符是否存在映射对了，对于每一个遍历到的字符，直接用其在数组中的值来更新left。
 
@@ -39,7 +39,7 @@ public class Solution {
         int res = 0;
         for (int left = -1, right = 0; right < s.length(); right++) { // (left, right]
             char c = s.charAt(right);
-            // if find repeating char, update left to the last index of that char in the string
+            // if find repeating char, update left to the last index of that repeating char found by right pointer in the string
             left = Math.max(left, arr[c]);
             // update the current char to its newest index
             arr[c] = right;
@@ -51,7 +51,7 @@ public class Solution {
 }
 ```
 
-## hashset + sliding window
+## hashset(for recording all the chars currently in the window) + sliding window
 
 下面这种解法使用了 HashSet，核心算法和上面的很类似，把出现过的字符都放入 HashSet 中，遇到 HashSet 中没有的字符就加入 HashSet 中并更新结果 res，如果遇到重复的，则从左边开始删字符，直到删到重复的字符停止。
 
@@ -73,6 +73,32 @@ public class Solution {
             res = Math.max(res, right - left); // len = right - left because of (left, right]
         }
         return res;
+    }
+}
+```
+
+## int array(counting char frequency) + counter(invalid chars currently in the window) + sliding window
+
+上面的方法都太偏，用这个最终模板，带cnt的，cnt的意义随题目变化，走到哪里都好用！
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null) return 0;
+        int[] hash = new int[128];
+        int left = 0, right = 0, cnt = 0, maxLen = 0;
+        while (right < s.length()) {
+            if (hash[s.charAt(right)] > 0) cnt++;
+            hash[s.charAt(right)]++;
+            right++;
+            while (cnt > 0) {
+                if (hash[s.charAt(left)] >= 2) cnt--;
+                hash[s.charAt(left)]--;
+                left++;
+            }
+            if (cnt == 0 && left <= right) maxLen = Math.max(maxLen, right - left);
+        }
+        return maxLen;
     }
 }
 ```
