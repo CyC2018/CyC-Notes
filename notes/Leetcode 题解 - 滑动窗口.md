@@ -18,5 +18,42 @@ https://www.jianshu.com/p/869f6d00d962
 https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/Sliding-Window-algorithm-template-to-solve-all-the-Leetcode-substring-search-problem.
 
 
-
+## template
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+        // check special cases
+        if (s == null || p == null || s.length() == 0 || p.length() == 0) return res;
+        // create an int hashing array
+        int[] hash = new int[128];
+        // optional, initialize this int array
+        for (char c : p.toCharArray()) hash[c]++;
+        // define left, right pointer and counter, the counter has different meaning in different questions
+        int left = 0, right = 0, cnt = 0;
+        // always start with a while loop
+        while (right < s.length()) {
+            // first check the char by the right pointer, see if we need to increase the counter
+            if (hash[s.charAt(right)] > 0) cnt++;
+            // decrease the corresponding position in hash array
+            hash[s.charAt(right)]--;
+            // make right pointing to the next char to be judged, so the window is [left, right) beyond this point
+            right++;
+            // use another while loop to see if we need to shrink the left side of the window by checking the counter
+            while (cnt == p.length()) {
+                // optional, see if we need to update the result here
+                if (right - left == p.length()) res.add(left);
+                // before shrinking the left side, see if we need to decrease the counter
+                if (hash[s.charAt(left)] >= 0) cnt--;
+                // increase and recovering the position in hash array
+                hash[s.charAt(left)]++;
+                // make left pointing to the next, finally, if the counter is back to normal, we will be pointing to the valid char
+                left++;
+            }
+        }
+        // return the result
+        return res;
+    }
+}
+```
 
