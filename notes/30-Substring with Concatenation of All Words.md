@@ -2,8 +2,8 @@
 
 ## hashmap(char-frequency) + hashmap(word-frequency) + counter + sliding window
 
-直接套用模板
-先往右扩展通过不断检测cnt判断是否已经找到所有需要的字符，然后左端缩小来找到正好对应words里所有字符出现频率的字符串，再isValid检测是否是word拼接起来的。
+直接套用模板！
+先往右扩展通过不断检测cnt判断是否已经找到所有需要的字符，然后左端缩小来找到正好对应words里所有字符出现频率的字符串（因此长度也必须刚好相等），再isValid检测是否是word拼接起来的。
 因为每个字长一样，所以isValid函数变得简单了，不然会很麻烦。
 
 ```java
@@ -55,3 +55,5 @@ class Solution {
     }
 }
 ```
+
+## 
