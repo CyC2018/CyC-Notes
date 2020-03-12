@@ -13,14 +13,12 @@ class Solution {
         if (s == null || s.length() == 0 || words == null || words.length == 0) return res;
         HashMap<Character, Integer> hash1 = new HashMap<>();
         HashMap<String, Integer> hash2 = new HashMap<>();
-        HashMap<String, Integer> hash3;
         for (String w : words) {
             for (char c : w.toCharArray()) {
                 hash1.put(c, hash1.getOrDefault(c, 0) + 1);
             }
             hash2.put(w, hash2.getOrDefault(w, 0) + 1);
         }
-        hash3 = new HashMap(hash2);
         int left = 0, right = 0, cnt = 0;
         int numChars = words[0].length() * words.length;
         while (right < s.length()) {
@@ -28,10 +26,9 @@ class Solution {
             hash1.put(s.charAt(right), hash1.getOrDefault(s.charAt(right), 0) - 1);
             right++;
             while (cnt == numChars) {
-                if (right - left == numChars && isValid(s.substring(left, right), words[0].length(), hash3)) {
+                if (right - left == numChars && isValid(s.substring(left, right), words[0].length(), hash2)) {
                     res.add(left);
                 }
-                hash3 = new HashMap(hash2);
                 if (hash1.containsKey(s.charAt(left)) && hash1.get(s.charAt(left)) >= 0) cnt--;
                 hash1.put(s.charAt(left), hash1.getOrDefault(s.charAt(left), 0) + 1);
                 left++;
@@ -39,7 +36,8 @@ class Solution {
         }
         return res;
     }
-    private boolean isValid(String substr, int wordLen, HashMap<String, Integer> hash3) {
+    private boolean isValid(String substr, int wordLen, HashMap<String, Integer> hash2) {
+        HashMap<String, Integer> hash3 = new HashMap(hash2);
         int start = 0;
         while (start + wordLen <= substr.length()) {
             String subSubstr = substr.substring(start, start + wordLen);
