@@ -31,3 +31,26 @@ public class Solution {
 }
 ```
 
+这道题根本不用cnt，直接检测hashmap有多少个不同的字符就行了。
+
+```java
+public class Solution {
+    public int lengthOfLongestSubstringKDistinct(String s, int k) {
+        if (s == null || s.length() == 0) return 0;
+        if (k >= s.length()) return s.length();
+        HashMap<Character, Integer> hash = new HashMap<>();
+        int left = 0, right = 0, res = 0;
+        while (right < s.length()) {
+            hash.put(s.charAt(right), hash.getOrDefault(s.charAt(right), 0) + 1);
+            right++;
+            while (hash.size() > k) {
+                if (hash.get(s.charAt(left)) == 1) hash.remove(s.charAt(left));
+                else hash.put(s.charAt(left), hash.get(s.charAt(left)) - 1);
+                left++;
+            }
+            res = Math.max(res, right - left);
+        }
+        return res;
+    }
+}
+```
