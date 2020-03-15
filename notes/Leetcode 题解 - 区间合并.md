@@ -11,6 +11,11 @@
 * [616. Add Bold Tag in String](#4-我的日程安排表1)
 * [715. Range Module](#4-我的日程安排表1)
 * [763. Partition Labels](#4-我的日程安排表1)
+* [435. Non-overlapping Intervals](#4-我的日程安排表1)
+* [436. Find Right Interval](#4-我的日程安排表1)
+* [352. Data Stream as Disjoint Intervals](#4-我的日程安排表1)
 <!-- GFM-TOC -->
 
 https://zhuanlan.zhihu.com/p/90664857
+
+https://zhuanlan.zhihu.com/p/26657786
