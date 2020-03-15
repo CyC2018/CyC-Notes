@@ -3,6 +3,10 @@
 * [142. Linked List Cycle II](#2-环形链表2)
 * [202. Happy Number](#3-快乐数)
 * [1. Two Sum](#4-链表的中间结点)
+* [633. Sum of Square Numbers](#4-链表的中间结点)
+* [345. Reverse Vowels of a String](#4-链表的中间结点)
+* [680. Valid Palindrome II](#4-链表的中间结点)
+* [88. Merge Sorted Array](#4-链表的中间结点)
 * [167. Two Sum II - Input array is sorted](#4-链表的中间结点)
 * [15. 3Sum](#4-链表的中间结点)
 * [16. 3Sum Closest](#4-链表的中间结点)
@@ -14,6 +18,9 @@
 * [30. Substring with Concatenation of All Words](#4-链表的中间结点)
 * [42. Trapping Rain Water](#4-链表的中间结点)
 * [75. Sort Colors](#4-链表的中间结点)
+* [76. Minimum Window Substring](#4-链表的中间结点)
+* [524. Longest Word in Dictionary through Deleting](#4-链表的中间结点)
+* [76. Minimum Window Substring](#4-链表的中间结点)
 * [76. Minimum Window Substring](#4-链表的中间结点)
 <!-- GFM-TOC -->
 
