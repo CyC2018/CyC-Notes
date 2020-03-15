@@ -1,6 +1,6 @@
 <!-- GFM-TOC -->
 * [438. Find All Anagrams in a String](https://github.com/yhx89757/CS-Notes/blob/master/notes/438.Find%20All%20Anagrams%20in%20a%20String.md)
-* [76. Minimum Window Substring](https://github.com/yhx89757/CS-Notes/blob/master/notes/76.Minimum%20Window%20Substring.md)
+* [76. Minimum Window Substring](https://github.com/yhx89757/CS-Notes/blob/master/notes/76.%20Minimum%20Window%20Substring.md)
 * [3. Longest Substring Without Repeating Characters](https://github.com/yhx89757/CS-Notes/blob/master/notes/3.Longest%20Substring%20Without%20Repeating%20Characters.md)
 * [30. Substring with Concatenation of All Words](https://github.com/yhx89757/CS-Notes/blob/master/notes/30.Substring%20with%20Concatenation%20of%20All%20Words.md)
 * [159. Longest Substring with At Most Two Distinct Characters](https://github.com/yhx89757/CS-Notes/edit/master/notes/159.Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters.md)
