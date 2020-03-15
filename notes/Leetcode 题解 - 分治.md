@@ -5,7 +5,4 @@
 * [53. Maximum Subarray](#2-不同的二叉搜索树)
 * [23. Merge k Sorted Lists](#2-不同的二叉搜索树)
 * [169. Majority Element](#2-不同的二叉搜索树)
-* [169. Majority Element](#2-不同的二叉搜索树)
-* [169. Majority Element](#2-不同的二叉搜索树)
-* [169. Majority Element](#2-不同的二叉搜索树)
 <!-- GFM-TOC -->
