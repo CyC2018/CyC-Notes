@@ -1,12 +1,15 @@
 <!-- GFM-TOC -->
-* [1. 用栈实现队列](#1-用栈实现队列)
-* [2. 用队列实现栈](#2-用队列实现栈)
-* [3. 最小值栈](#3-最小值栈)
-* [4. 用栈实现括号匹配](#4-用栈实现括号匹配)
-* [5. 数组中元素与下一个比它大的元素之间的距离](#5-数组中元素与下一个比它大的元素之间的距离)
-* [6. 循环数组中比当前元素大的下一个元素](#6-循环数组中比当前元素大的下一个元素)
+* [232. Implement Queue using Stacks](#1-用栈实现队列)
+* [225. Implement Stack using Queues](#2-用队列实现栈)
+* [155. Min Stack](#3-最小值栈)
+* [20. Valid Parentheses](#4-用栈实现括号匹配)
+* [739. Daily Temperatures](#5-数组中元素与下一个比它大的元素之间的距离)
+* [503. Next Greater Element II](#6-循环数组中比当前元素大的下一个元素)
+* [42. Trapping Rain Water](#6-循环数组中比当前元素大的下一个元素)
+* [71. Simplify Path](#6-循环数组中比当前元素大的下一个元素)
+* [84. Largest Rectangle in Histogram](#6-循环数组中比当前元素大的下一个元素)
+* [150. Evaluate Reverse Polish Notation](#6-循环数组中比当前元素大的下一个元素)
 <!-- GFM-TOC -->
-
 
 # 1. 用栈实现队列
 
