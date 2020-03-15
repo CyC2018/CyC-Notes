@@ -3,7 +3,7 @@
     * [1. 计算在网格中从原点到特定点的最短路径长度](#1-计算在网格中从原点到特定点的最短路径长度)
     * [2. 组成整数的最小平方数数量](#2-组成整数的最小平方数数量)
     * [3. 最短单词路径](#3-最短单词路径)
-    * [1. Binary Tree Level Order Traversal](#1-二叉树的层次遍历)
+    * [1. Binary Tree Level Order Traversal](#1-二叉树的层次遍历 )
 	* [2. Binary Tree Level Order Traversal II](#2-二叉树的层次遍历2)
 	* [3. Binary Tree Zigzag Level Order Traversal](#3-二叉树的锯齿形层次遍历)
 	* [4. N-ary Tree Level Order Traversal](#4-N叉树的层序遍历)
