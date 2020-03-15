@@ -1,12 +1,11 @@
 <!-- GFM-TOC -->
-* [1. 求开方](#1-求开方)
-* [2. 大于给定元素的最小元素](#2-大于给定元素的最小元素)
-* [3. 有序数组的 Single Element](#3-有序数组的-single-element)
-* [4. 第一个错误的版本](#4-第一个错误的版本)
-* [5. 旋转数组的最小数字](#5-旋转数组的最小数字)
-* [6. 查找区间](#6-查找区间)
+* [69. Sqrt(x)](#1-求开方)
+* [744. Find Smallest Letter Greater Than Target](#2-大于给定元素的最小元素)
+* [540. Single Element in a Sorted Array](#3-有序数组的-single-element)
+* [278. First Bad Version](#4-第一个错误的版本)
+* [153. Find Minimum in Rotated Sorted Array](#5-旋转数组的最小数字)
+* [34. Find First and Last Position of Element in Sorted Array](#6-查找区间)
 <!-- GFM-TOC -->
-
 
 **正常实现**  
 
