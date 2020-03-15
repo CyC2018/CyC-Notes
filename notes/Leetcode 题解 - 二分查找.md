@@ -4,7 +4,12 @@
 * [540. Single Element in a Sorted Array](#3-有序数组的-single-element)
 * [278. First Bad Version](#4-第一个错误的版本)
 * [153. Find Minimum in Rotated Sorted Array](#5-旋转数组的最小数字)
+* [327. Count of Range Sum](#6-查找区间)
+* [35. Search Insert Position](#6-查找区间)
+* [33. Search in Rotated Sorted Array](#6-查找区间)
+* [81. Search in Rotated Sorted Array II](#6-查找区间)
 * [34. Find First and Last Position of Element in Sorted Array](#6-查找区间)
+* [4. Median of Two Sorted Arrays](#6-查找区间)
 <!-- GFM-TOC -->
 
 **正常实现**  
