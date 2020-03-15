@@ -1,12 +1,12 @@
 <!-- GFM-TOC -->
 * [快速选择](#快速选择)
 * [堆](#堆)
-    * [1. Kth Element](#1-kth-element)
+    * [215. Kth Largest Element in an Array](#1-kth-element)
 * [桶排序](#桶排序)
-    * [1. 出现频率最多的 k 个元素](#1-出现频率最多的-k-个元素)
-    * [2. 按照字符出现次数对字符串排序](#2-按照字符出现次数对字符串排序)
+    * [347. Top K Frequent Elements](#1-出现频率最多的-k-个元素)
+    * [451. Sort Characters By Frequency](#2-按照字符出现次数对字符串排序)
 * [荷兰国旗问题](#荷兰国旗问题)
-    * [1. 按颜色进行排序](#1-按颜色进行排序)
+    * [75. Sort Colors](#1-按颜色进行排序)
 <!-- GFM-TOC -->
 
 
