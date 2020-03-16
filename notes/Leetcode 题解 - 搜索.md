@@ -47,6 +47,10 @@
 
 https://zhuanlan.zhihu.com/p/26487841
 
+回溯法文章：
+
+https://zhuanlan.zhihu.com/p/28340833
+
 深度优先搜索和广度优先搜索广泛运用于树和图中，但是它们的应用远远不止如此。
 
 # BFS
