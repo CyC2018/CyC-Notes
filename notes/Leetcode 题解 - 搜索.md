@@ -43,6 +43,9 @@
 	* [60. Permutation Sequence](#15-n-皇后)
 <!-- GFM-TOC -->
 
+不一样的BFS思路：
+
+https://zhuanlan.zhihu.com/p/26487841
 
 深度优先搜索和广度优先搜索广泛运用于树和图中，但是它们的应用远远不止如此。
 
