@@ -31,6 +31,6 @@ https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/discuss
 
 对于第一类问题，通常按照end排序，维护一个end变量即可。
 
-低于第二类问题，通常按照start排序，维护一个数组，每次取最后一个数作为比较的标准。
+对于第二类问题，通常按照start排序，维护一个数组，每次取最后一个数作为比较的标准。
 
 注意按照start或者end排序两种方式都可以求解，只是在不同情况下用其中之一代码编写更简洁。
