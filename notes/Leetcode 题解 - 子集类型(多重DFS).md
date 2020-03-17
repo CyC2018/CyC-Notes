@@ -1,10 +1,10 @@
 <!-- GFM-TOC -->
-* [1. Subsets (easy)](#1-有序数组的-two-sum)
-* [2. Subsets With Duplicates (easy)](#2-两数平方和)
-* [3. Permutations (medium)](#3-反转字符串中的元音字符)
-* [4. String Permutations by changing case (medium)](#4-回文字符串)
-* [5. Balanced Parentheses (hard)](#5-归并两个有序数组)
-* [6. Unique Generalized Abbreviations (hard)](#6-判断链表是否存在环)
+* [78. Subsets](#1-有序数组的-two-sum)
+* [90. Subsets II](#2-两数平方和)
+* [46. Permutations](#3-反转字符串中的元音字符)
+* [784. Letter Case Permutation](#4-回文字符串)
+* [20. Valid Parentheses](#5-归并两个有序数组)
+* [288. Unique Generalized Abbreviations](https://www.lintcode.com/problem/unique-word-abbreviation/description)
 <!-- GFM-TOC -->
 
 
