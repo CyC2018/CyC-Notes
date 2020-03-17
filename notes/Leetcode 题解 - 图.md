@@ -4,6 +4,8 @@
 * [拓扑排序](#拓扑排序)
     * [207. Course Schedule](#1-课程安排的合法性)
     * [210. Course Schedule II](#2-课程安排的顺序)
+    * [621. Task Scheduler](#2-课程安排的顺序)
+    * [269. Alien Dictionary](https://www.lintcode.com/problem/alien-dictionary/description)
 * [并查集](#并查集)
     * [684. Redundant Connection](#1-冗余连接)
 <!-- GFM-TOC -->
