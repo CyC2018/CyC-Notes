@@ -87,21 +87,19 @@ Explanation: 1 * 1 + 2 * 2 = 5
 因为最多只需要遍历一次 0\~sqrt(target)，所以时间复杂度为 O(sqrt(target))。又因为只使用了两个额外的变量，因此空间复杂度为 O(1)。
 
 ```java
- public boolean judgeSquareSum(int target) {
-     if (target < 0) return false;
-     int i = 0, j = (int) Math.sqrt(target);
-     while (i <= j) {
-         int powSum = i * i + j * j;
-         if (powSum == target) {
-             return true;
-         } else if (powSum > target) {
-             j--;
-         } else {
-             i++;
-         }
-     }
-     return false;
- }
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        int left = 0;
+        int right = (int) Math.sqrt(c);
+        while (left <= right) {
+            int product = left * left + right * right;
+            if (product == c) return true;
+            else if (product < c) left++;
+            else right--;
+        }
+        return false;
+    }
+}
 ```
 
 # 3. 反转字符串中的元音字符
