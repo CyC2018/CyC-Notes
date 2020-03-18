@@ -262,6 +262,43 @@ Output: [0,0,1,1,2,2]
 
 题目描述：只有 0/1/2 三种颜色。
 
+三向切分适用于重复数很多的情况下，只要pVal中轴数选的好，能大幅减少快速排序递归下去的排序区间（其实就是减去了中间等于中轴数的部分，那部分不用再去递归排序了），实际上相当于快速排序O(NlogN)的剪枝算法，要比快速排序在大量重复数情况下快一点。
+
+```java
+class Solution {
+    public void sortColors(int[] nums) {
+        sortColors(nums, 0, nums.length - 1);
+    }
+    
+    private void sortColors(int[] nums, int left, int right) {
+        if (left >= right) return;
+        int leftwall = left, rightwall = right, cur = leftwall + 1, pVal = nums[leftwall];
+        while (cur <= rightwall) {
+            if (nums[cur] < pVal) {
+                swap(nums, cur, leftwall);
+                cur++;
+                leftwall++;
+            } else if (nums[cur] > pVal) {
+                swap(nums, cur, rightwall);
+                rightwall--;
+            } else {
+                cur++;
+            }
+        }
+        sortColors(nums, left, leftwall - 1);
+        sortColors(nums, rightwall + 1, right);
+    }
+    
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+```
+
+这题要利用数组中只有三个数的特点，把三向切分变种一下，实现O(N)时间复杂度。
+
 ```java
 public void sortColors(int[] nums) {
     int zero = -1, one = 0, two = nums.length;
