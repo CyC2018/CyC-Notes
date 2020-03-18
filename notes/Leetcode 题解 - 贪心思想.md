@@ -90,33 +90,58 @@ Explanation: You don't need to remove any of the intervals since they're already
 按区间的结尾进行排序，每次选择结尾最小，并且和前一个区间不重叠的区间。
 
 ```java
-public int eraseOverlapIntervals(int[][] intervals) {
-    if (intervals.length == 0) {
-        return 0;
-    }
-    Arrays.sort(intervals, Comparator.comparingInt(o -> o[1]));
-    int cnt = 1;
-    int end = intervals[0][1];
-    for (int i = 1; i < intervals.length; i++) {
-        if (intervals[i][0] < end) {
-            continue;
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) return 0;
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[1]));
+        int cnt = 1, end = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] < end) continue;
+            cnt++;
+            end = intervals[i][1];
         }
-        end = intervals[i][1];
-        cnt++;
+        return intervals.length - cnt;
     }
-    return intervals.length - cnt;
+}
+```
+
+```java
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) return 0;
+        Arrays.sort(intervals, (a, b) -> (a[1] - b[1])); // 还可以这样写，用匿名函数
+        int cnt = 1, end = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] < end) continue;
+            cnt++;
+            end = intervals[i][1];
+        }
+        return intervals.length - cnt;
+    }
 }
 ```
 
 使用 lambda 表示式创建 Comparator 会导致算法运行时间过长，如果注重运行时间，可以修改为普通创建 Comparator 语句：
 
 ```java
-Arrays.sort(intervals, new Comparator<int[]>() {
-    @Override
-    public int compare(int[] o1, int[] o2) {
-        return o1[1] - o2[1];
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) return 0;
+        Arrays.sort(intervals, new Comparator<int[]>() { // 新建并重写Comparator下面的compare函数
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1] - o2[1];
+            }
+        });
+        int cnt = 1, end = intervals[0][1];
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i][0] < end) continue;
+            cnt++;
+            end = intervals[i][1];
+        }
+        return intervals.length - cnt;
     }
-});
+}
 ```
 
 # 3. 投飞镖刺破气球
