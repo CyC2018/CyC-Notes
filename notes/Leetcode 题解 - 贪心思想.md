@@ -41,19 +41,21 @@ Output: 2
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/e69537d2-a016-4676-b169-9ea17eeb9037.gif" width="430px"> </div><br>
 
+具体贪心解法，就是双指针嘛：
+
 ```java
-public int findContentChildren(int[] grid, int[] size) {
-    if (grid == null || size == null) return 0;
-    Arrays.sort(grid);
-    Arrays.sort(size);
-    int gi = 0, si = 0;
-    while (gi < grid.length && si < size.length) {
-        if (grid[gi] <= size[si]) {
-            gi++;
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        if (s == null || s.length == 0 || g == null || g.length == 0) return 0;
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int i = 0, j = 0;
+        while (i < g.length && j < s.length) {
+            if (g[i] <= s[j]) i++;
+            j++;
         }
-        si++;
+        return i;
     }
-    return gi;
 }
 ```
 
