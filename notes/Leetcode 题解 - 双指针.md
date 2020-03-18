@@ -49,20 +49,18 @@ Output: index1=1, index2=2
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/437cb54c-5970-4ba9-b2ef-2541f7d6c81e.gif" width="200px"> </div><br>
 
 ```java
-public int[] twoSum(int[] numbers, int target) {
-    if (numbers == null) return null;
-    int i = 0, j = numbers.length - 1;
-    while (i < j) {
-        int sum = numbers[i] + numbers[j];
-        if (sum == target) {
-            return new int[]{i + 1, j + 1};
-        } else if (sum < target) {
-            i++;
-        } else {
-            j--;
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        if (numbers == null || numbers.length == 0) return null;
+        int left = 0, right = numbers.length - 1;
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            if (sum == target) return new int[]{left + 1, right + 1};
+            else if (sum < target) left++;
+            else right--;
         }
+        return null;
     }
-    return null;
 }
 ```
 
