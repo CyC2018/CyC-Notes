@@ -124,26 +124,31 @@ Given s = "leetcode", return "leotcede".
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/ef25ff7c-0f63-420d-8b30-eafbeea35d11.gif" width="400px"> </div><br>
 
 ```java
-private final static HashSet<Character> vowels = new HashSet<>(
-        Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
-
-public String reverseVowels(String s) {
-    if (s == null) return null;
-    int i = 0, j = s.length() - 1;
-    char[] result = new char[s.length()];
-    while (i <= j) {
-        char ci = s.charAt(i);
-        char cj = s.charAt(j);
-        if (!vowels.contains(ci)) {
-            result[i++] = ci;
-        } else if (!vowels.contains(cj)) {
-            result[j--] = cj;
-        } else {
-            result[i++] = cj;
-            result[j--] = ci;
+class Solution {
+    private static final HashSet<Character> set = new HashSet<>(
+        Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+    public String reverseVowels(String s) {
+        if (s == null || s.length() == 0) return null;
+        int left = 0, right = s.length() - 1;
+        char[] res = new char[s.length()];
+        while (left <= right) {
+            char c1 = s.charAt(left);
+            char c2 = s.charAt(right);
+            if (!set.contains(c1)) {
+                res[left] = c1;
+                left++;
+            } else if (!set.contains(c2)) {
+                res[right] = c2;
+                right--;
+            } else {
+                res[left] = c2;
+                res[right] = c1;
+                left++;
+                right--;
+            }
         }
+        return new String(res);
     }
-    return new String(result);
 }
 ```
 
@@ -176,22 +181,28 @@ Explanation: You could delete the character 'c'.
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/db5f30a7-8bfa-4ecc-ab5d-747c77818964.gif" width="300px"> </div><br>
 
 ```java
-public boolean validPalindrome(String s) {
-    for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-        if (s.charAt(i) != s.charAt(j)) {
-            return isPalindrome(s, i, j - 1) || isPalindrome(s, i + 1, j);
+class Solution {
+    public boolean validPalindrome(String s) {
+        if (s == null || s.length() == 0) return true;
+        int left = 0, right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
+            }
+            left++;
+            right--;
         }
+        return true;
     }
-    return true;
-}
-
-private boolean isPalindrome(String s, int i, int j) {
-    while (i < j) {
-        if (s.charAt(i++) != s.charAt(j--)) {
-            return false;
+    
+    private boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+            left++;
+            right--;
         }
+        return true;
     }
-    return true;
 }
 ```
 
@@ -214,19 +225,14 @@ Output: [1,2,2,3,5,6]
 需要从尾开始遍历，否则在 nums1 上归并得到的值会覆盖还未进行归并比较的值。
 
 ```java
-public void merge(int[] nums1, int m, int[] nums2, int n) {
-    int index1 = m - 1, index2 = n - 1;
-    int indexMerge = m + n - 1;
-    while (index1 >= 0 || index2 >= 0) {
-        if (index1 < 0) {
-            nums1[indexMerge--] = nums2[index2--];
-        } else if (index2 < 0) {
-            nums1[indexMerge--] = nums1[index1--];
-        } else if (nums1[index1] > nums2[index2]) {
-            nums1[indexMerge--] = nums1[index1--];
-        } else {
-            nums1[indexMerge--] = nums2[index2--];
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1, j = n - 1, k = m + n - 1;
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) nums1[k--] = nums1[i--];
+            else nums1[k--] = nums2[j--];
         }
+        while (j >= 0) nums1[k--] = nums2[j--];
     }
 }
 ```
@@ -240,19 +246,18 @@ public void merge(int[] nums1, int m, int[] nums2, int n) {
 使用双指针，一个指针每次移动一个节点，一个指针每次移动两个节点，如果存在环，那么这两个指针一定会相遇。
 
 ```java
-public boolean hasCycle(ListNode head) {
-    if (head == null) {
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) return false;
+        ListNode slow = head;
+        ListNode fast = head.next.next;
+        while (slow != null && fast != null && fast.next != null) {
+            if (slow == fast) return true;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
         return false;
     }
-    ListNode l1 = head, l2 = head.next;
-    while (l1 != null && l2 != null && l2.next != null) {
-        if (l1 == l2) {
-            return true;
-        }
-        l1 = l1.next;
-        l2 = l2.next.next;
-    }
-    return false;
 }
 ```
 
@@ -275,29 +280,29 @@ Output:
 通过删除字符串 s 中的一个字符能得到字符串 t，可以认为 t 是 s 的子序列，我们可以使用双指针来判断一个字符串是否为另一个字符串的子序列。
 
 ```java
-public String findLongestWord(String s, List<String> d) {
-    String longestWord = "";
-    for (String target : d) {
-        int l1 = longestWord.length(), l2 = target.length();
-        if (l1 > l2 || (l1 == l2 && longestWord.compareTo(target) < 0)) {
-            continue;
+class Solution {
+    public String findLongestWord(String s, List<String> d) {
+        if (d.size() == 0 || s == null || s.length() == 0) return "";
+        String res = "";
+        for (String target : d) {
+            if (isSubSequence(s, target)) {
+                if (target.length() > res.length() || 
+                    target.length() == res.length() && res.compareTo(target) > 0) {
+                    res = target;
+                }
+            }
         }
-        if (isSubstr(s, target)) {
-            longestWord = target;
-        }
+        return res;
     }
-    return longestWord;
-}
-
-private boolean isSubstr(String s, String target) {
-    int i = 0, j = 0;
-    while (i < s.length() && j < target.length()) {
-        if (s.charAt(i) == target.charAt(j)) {
-            j++;
+    
+    private boolean isSubSequence(String s, String target) {
+        int i = 0, j = 0;
+        while (i < s.length() && j < target.length()) {
+            if (s.charAt(i) == target.charAt(j)) j++;
+            i++;
         }
-        i++;
+        return j == target.length();
     }
-    return j == target.length();
 }
 ```
 
