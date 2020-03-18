@@ -202,16 +202,16 @@ Output:
 身高 h 降序、个数 k 值升序，然后将某个学生插入队列的第 k 个位置中。
 
 ```java
-public int[][] reconstructQueue(int[][] people) {
-    if (people == null || people.length == 0 || people[0].length == 0) {
-        return new int[0][0];
+class Solution {
+    public int[][] reconstructQueue(int[][] people) {
+        if (people == null || people.length == 0 || people[0].length == 0) return new int[0][0];
+        Arrays.sort(people, (a, b) -> (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
+        List<int[]> arr = new ArrayList<>();
+        for (int[] p : people) {
+            arr.add(p[1], p);
+        }
+        return arr.toArray(new int[arr.size()][]);
     }
-    Arrays.sort(people, (a, b) -> (a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]));
-    List<int[]> queue = new ArrayList<>();
-    for (int[] p : people) {
-        queue.add(p[1], p);
-    }
-    return queue.toArray(new int[queue.size()][]);
 }
 ```
 
@@ -226,16 +226,16 @@ public int[][] reconstructQueue(int[][] people) {
 只要记录前面的最小价格，将这个最小价格作为买入价格，然后将当前的价格作为售出价格，查看当前收益是不是最大收益。
 
 ```java
-public int maxProfit(int[] prices) {
-    int n = prices.length;
-    if (n == 0) return 0;
-    int soFarMin = prices[0];
-    int max = 0;
-    for (int i = 1; i < n; i++) {
-        if (soFarMin > prices[i]) soFarMin = prices[i];
-        else max = Math.max(max, prices[i] - soFarMin);
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+        int soFarMin = prices[0], diff = 0;
+        for (int i = 0; i < prices.length; i++) {
+            soFarMin = Math.min(soFarMin, prices[i]);
+            diff = Math.max(diff, prices[i] - soFarMin);
+        }
+        return diff;
     }
-    return max;
 }
 ```
 
@@ -251,14 +251,17 @@ public int maxProfit(int[] prices) {
 对于 [a, b, c, d]，如果有 a <= b <= c <= d ，那么最大收益为 d - a。而 d - a = (d - c) + (c - b) + (b - a) ，因此当访问到一个 prices[i] 且 prices[i] - prices[i-1] > 0，那么就把 prices[i] - prices[i-1] 添加到收益中。
 
 ```java
-public int maxProfit(int[] prices) {
-    int profit = 0;
-    for (int i = 1; i < prices.length; i++) {
-        if (prices[i] > prices[i - 1]) {
-            profit += (prices[i] - prices[i - 1]);
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+        int res = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                res += prices[i] - prices[i - 1];
+            }
         }
+        return res;
     }
-    return profit;
 }
 ```
 
@@ -277,21 +280,21 @@ Output: True
 题目描述：flowerbed 数组中 1 表示已经种下了花朵。花朵之间至少需要一个单位的间隔，求解是否能种下 n 朵花。
 
 ```java
-public boolean canPlaceFlowers(int[] flowerbed, int n) {
-    int len = flowerbed.length;
-    int cnt = 0;
-    for (int i = 0; i < len && cnt < n; i++) {
-        if (flowerbed[i] == 1) {
-            continue;
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        if (flowerbed == null || flowerbed.length == 0) return n == 0;
+        int cnt = 0;
+        for (int i = 0; i < flowerbed.length; i++) { // 也可以加个cnt < n实现剪枝
+            if (flowerbed[i] == 1) continue;
+            int pre = i == 0 ? 0 : flowerbed[i - 1];
+            int next = i == flowerbed.length - 1 ? 0 : flowerbed[i + 1];
+            if (pre == 0 && next == 0) {
+                cnt++;
+                flowerbed[i] = 1;
+            }
         }
-        int pre = i == 0 ? 0 : flowerbed[i - 1];
-        int next = i == len - 1 ? 0 : flowerbed[i + 1];
-        if (pre == 0 && next == 0) {
-            cnt++;
-            flowerbed[i] = 1;
-        }
+        return cnt >= n;
     }
-    return cnt >= n;
 }
 ```
 
@@ -307,15 +310,19 @@ Return true.
 ```
 
 ```java
-public boolean isSubsequence(String s, String t) {
-    int index = -1;
-    for (char c : s.toCharArray()) {
-        index = t.indexOf(c, index + 1);
-        if (index == -1) {
-            return false;
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int i = 0, j = 0;
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                j++;
+            }
         }
+        return i == s.length();
     }
-    return true;
 }
 ```
 
@@ -336,24 +343,48 @@ Explanation: You could modify the first 4 to 1 to get a non-decreasing array.
 在出现 nums[i] < nums[i - 1] 时，需要考虑的是应该修改数组的哪个数，使得本次修改能使 i 之前的数组成为非递减数组，并且   **不影响后续的操作**  。优先考虑令 nums[i - 1] = nums[i]，因为如果修改 nums[i] = nums[i - 1] 的话，那么 nums[i] 这个数会变大，就有可能比 nums[i + 1] 大，从而影响了后续操作。还有一个比较特别的情况就是 nums[i] < nums[i - 2]，修改 nums[i - 1] = nums[i] 不能使数组成为非递减数组，只能修改 nums[i] = nums[i - 1]。
 
 ```java
-public boolean checkPossibility(int[] nums) {
-    int cnt = 0;
-    for (int i = 1; i < nums.length && cnt < 2; i++) {
-        if (nums[i] >= nums[i - 1]) {
-            continue;
+class Solution {
+    public boolean checkPossibility(int[] nums) {
+        if (nums == null || nums.length == 0) return true;
+        int cnt = 0;
+        for (int i = 1; i < nums.length && cnt < 2; i++) {
+            if (nums[i] >= nums[i - 1]) continue;
+            cnt++;
+            if (i >= 2 && nums[i - 2] > nums[i]) nums[i] = nums[i - 1];
+            else nums[i - 1] = nums[i];
         }
-        cnt++;
-        if (i - 2 >= 0 && nums[i - 2] > nums[i]) {
-            nums[i] = nums[i - 1];
-        } else {
-            nums[i - 1] = nums[i];
-        }
+        return cnt <= 1;
     }
-    return cnt <= 1;
 }
 ```
 
+还有一种解法，出现递减的时候有两种改变，要么把nums[i] = nums[i - 1]，要么把nums[i - 1] = nums[i]。那我就两个都试一下，看看有没有对的情况。如果任何一种情况行不通，那我把它改回原样，再试另一种情况。（有点回溯思想）
 
+```java
+class Solution {
+    public boolean checkPossibility(int[] nums) {
+        if (nums == null || nums.length == 0) return true;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] >= nums[i - 1]) continue;
+            else return isValid(nums, i, i - 1) || isValid(nums, i - 1, i);
+        }
+        return true;
+    }
+    
+    private boolean isValid(int[] nums, int from, int to) {
+        int fromVal = nums[from];
+        int toVal = nums[to];
+        nums[to] = fromVal;
+        for (int i = 1; i < nums.length; i++) {
+             if (nums[i] < nums[i - 1]) {
+                 nums[to] = toVal;
+                 return false;
+             }
+        }
+        return true;
+    }
+}
+```
 
 # 10. 子数组最大的和
 
@@ -367,17 +398,65 @@ the contiguous subarray [4,-1,2,1] has the largest sum = 6.
 ```
 
 ```java
-public int maxSubArray(int[] nums) {
-    if (nums == null || nums.length == 0) {
-        return 0;
+class Solution {
+    public int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int res = Integer.MIN_VALUE, curSum = 0;
+        for (int num : nums) {
+            curSum = Math.max(curSum + num, num);
+            res = Math.max(res, curSum);
+        }
+        return res;
     }
-    int preSum = nums[0];
-    int maxSum = preSum;
-    for (int i = 1; i < nums.length; i++) {
-        preSum = preSum > 0 ? preSum + nums[i] : nums[i];
-        maxSum = Math.max(maxSum, preSum);
+}
+```
+
+分治思想，先整体，再两边。
+
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+        return maxSubArray(nums, 0, nums.length - 1);
     }
-    return maxSum;
+    private int maxSubArray(int[] nums, int left, int right) {
+        if (left >= right) return nums[left];
+        int mid = left + (right - left) / 2;
+        int lmax = maxSubArray(nums, left, mid);
+        int rmax = maxSubArray(nums, mid + 1, right);
+        int mmax = nums[mid];
+        int curSum = mmax;
+        for (int i = mid - 1; i >= left; i--) {
+            curSum += nums[i];
+            mmax = Math.max(mmax, curSum);
+        }
+        curSum = mmax;
+        for (int i = mid + 1; i <= right; i++) {
+            curSum += nums[i];
+            mmax = Math.max(mmax, curSum);
+        }
+        return Math.max(Math.max(mmax, lmax), rmax);
+    }
+}
+```
+
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+        return maxSubArray(nums, 0, nums.length - 1);
+    }
+    private int maxSubArray(int[] nums, int left, int right) {
+        if (left >= right) return nums[left];
+        int mid = left + (right - left) / 2;
+        int lmax = maxSubArray(nums, left, mid);
+        int rmax = maxSubArray(nums, mid + 1, right);
+        int mmax = Integer.MIN_VALUE;
+        int curSum = 0;
+        for (int i = left; i <= right; i++) {
+            curSum = Math.max(curSum + nums[i], nums[i]);
+            mmax = Math.max(mmax, curSum);
+        }
+        return Math.max(Math.max(mmax, lmax), rmax);
+    }
 }
 ```
 
@@ -397,29 +476,22 @@ A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits 
 ```
 
 ```java
-public List<Integer> partitionLabels(String S) {
-    int[] lastIndexsOfChar = new int[26];
-    for (int i = 0; i < S.length(); i++) {
-        lastIndexsOfChar[char2Index(S.charAt(i))] = i;
-    }
-    List<Integer> partitions = new ArrayList<>();
-    int firstIndex = 0;
-    while (firstIndex < S.length()) {
-        int lastIndex = firstIndex;
-        for (int i = firstIndex; i < S.length() && i <= lastIndex; i++) {
-            int index = lastIndexsOfChar[char2Index(S.charAt(i))];
-            if (index > lastIndex) {
-                lastIndex = index;
+class Solution {
+    public List<Integer> partitionLabels(String S) {
+        List<Integer> res = new ArrayList<>();
+        if (S == null || S.length() == 0) return res;
+        HashMap<Character, Integer> count = new HashMap<>();
+        for (int i = 0; i < S.length(); i++) count.put(S.charAt(i), i);
+        int start = 0, end = 0;
+        for (int i = 0; i < S.length(); i++) {
+            end = Math.max(end, count.get(S.charAt(i)));
+            if (i == end) {
+                res.add(end - start + 1);
+                start = end + 1;
             }
         }
-        partitions.add(lastIndex - firstIndex + 1);
-        firstIndex = lastIndex + 1;
+        return res;
     }
-    return partitions;
-}
-
-private int char2Index(char c) {
-    return c - 'a';
 }
 ```
 
