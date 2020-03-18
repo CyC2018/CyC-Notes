@@ -51,14 +51,17 @@ public int findKthLargest(int[] nums, int k) {
 **堆**  ：时间复杂度 O(NlogK)，空间复杂度 O(K)。
 
 ```java
-public int findKthLargest(int[] nums, int k) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>(); // 小顶堆
-    for (int val : nums) {
-        pq.add(val);
-        if (pq.size() > k)  // 维护堆的大小为 K
-            pq.poll();
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int num : nums) {
+            pq.add(num);
+            if (pq.size() > k) { // 维护堆的大小为 K
+                pq.poll();
+            }
+        }
+        return pq.peek();
     }
-    return pq.peek();
 }
 ```
 
