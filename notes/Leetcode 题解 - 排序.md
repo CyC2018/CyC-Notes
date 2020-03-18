@@ -244,6 +244,10 @@ class Solution {
 
 <div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/7a3215ec-6fb7-4935-8b0d-cb408208f7cb.png"/> </div><br>
 
+三向切分（fast 3-way partitioning)解释文章：
+
+https://blog.csdn.net/a8336675/article/details/51818743
+
 
 ## 1. 按颜色进行排序
 
