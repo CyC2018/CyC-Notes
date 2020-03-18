@@ -68,40 +68,37 @@ class Solution {
 **快速选择**  ：时间复杂度 O(N)，空间复杂度 O(1)
 
 ```java
-public int findKthLargest(int[] nums, int k) {
-    k = nums.length - k;
-    int l = 0, h = nums.length - 1;
-    while (l < h) {
-        int j = partition(nums, l, h);
-        if (j == k) {
-            break;
-        } else if (j < k) {
-            l = j + 1;
-        } else {
-            h = j - 1;
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int left = 0, right = nums.length - 1;
+        int target = nums.length - k;
+        while (left < right) {
+            int piv = partition(nums, left, right);
+            if (piv == target) break;
+            else if (piv < target) left = piv + 1;
+            else right = piv - 1;
         }
+        return nums[target];
     }
-    return nums[k];
-}
-
-private int partition(int[] a, int l, int h) {
-    int i = l, j = h + 1;
-    while (true) {
-        while (a[++i] < a[l] && i < h) ;
-        while (a[--j] > a[l] && j > l) ;
-        if (i >= j) {
-            break;
+    
+    private int partition(int[] nums, int left, int right) {
+        int pVal = nums[right];
+        int leftwall = left;
+        for (int i = left; i < right; i++) {
+            if (nums[i] < pVal) {
+                swap(nums, i, leftwall);
+                leftwall++;
+            }
         }
-        swap(a, i, j);
+        swap(nums, right, leftwall);
+        return leftwall;
     }
-    swap(a, l, j);
-    return j;
-}
-
-private void swap(int[] a, int i, int j) {
-    int t = a[i];
-    a[i] = a[j];
-    a[j] = t;
+    
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
 ```
 
