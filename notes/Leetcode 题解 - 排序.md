@@ -119,31 +119,48 @@ Given [1,1,1,2,2,3] and k = 2, return [1,2].
 把数都放到桶之后，从后向前遍历桶，最先得到的 k 个数就是出现频率最多的的 k 个数。
 
 ```java
-public List<Integer> topKFrequent(int[] nums, int k) {
-    Map<Integer, Integer> frequencyForNum = new HashMap<>();
-    for (int num : nums) {
-        frequencyForNum.put(num, frequencyForNum.getOrDefault(num, 0) + 1);
-    }
-    List<Integer>[] buckets = new ArrayList[nums.length + 1];
-    for (int key : frequencyForNum.keySet()) {
-        int frequency = frequencyForNum.get(key);
-        if (buckets[frequency] == null) {
-            buckets[frequency] = new ArrayList<>();
+class Solution {
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        HashMap<Integer, Integer> count = new HashMap<>();
+        // 使用字典，统计每个元素出现的次数，元素为键，元素出现的次数为值
+        for (int num : nums) count.put(num, count.getOrDefault(num, 0) + 1);
+        // 桶排序
+        // 将频率作为数组下标，对于出现频率不同的数字集合，存入对应的数组下标
+        List<Integer>[] arr = new List[nums.length + 1];
+        for (int key : count.keySet()) {
+            if (arr[count.get(key)] == null) arr[count.get(key)] = new ArrayList<>();
+            arr[count.get(key)].add(key);
         }
-        buckets[frequency].add(key);
-    }
-    List<Integer> topK = new ArrayList<>();
-    for (int i = buckets.length - 1; i >= 0 && topK.size() < k; i--) {
-        if (buckets[i] == null) {
-            continue;
+        // 倒序遍历数组获取出现顺序从大到小的排列
+        List<Integer> res = new ArrayList<>();
+        for (int i = arr.length - 1; i >= 0 && res.size() < k; i--) {
+            if (arr[i] != null) res.addAll(arr[i]); 
         }
-        if (buckets[i].size() <= (k - topK.size())) {
-            topK.addAll(buckets[i]);
-        } else {
-            topK.addAll(buckets[i].subList(0, k - topK.size()));
-        }
+        return res;
     }
-    return topK;
+}
+```
+
+其他解法，维护一个大小为k的最小堆：
+
+```java
+class Solution {
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        HashMap<Integer, Integer> count = new HashMap<>();
+        for (int num : nums) count.put(num, count.getOrDefault(num, 0) + 1);
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> (count.get(a) - count.get(b)));
+        for (int val : count.keySet()) {
+            heap.add(val);
+            if (heap.size() > k) {
+                heap.poll();
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        while (!heap.isEmpty()) {
+            res.add(heap.poll());
+        }
+        return res;
+    }
 }
 ```
 
@@ -166,31 +183,56 @@ So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid ans
 ```
 
 ```java
-public String frequencySort(String s) {
-    Map<Character, Integer> frequencyForNum = new HashMap<>();
-    for (char c : s.toCharArray())
-        frequencyForNum.put(c, frequencyForNum.getOrDefault(c, 0) + 1);
-
-    List<Character>[] frequencyBucket = new ArrayList[s.length() + 1];
-    for (char c : frequencyForNum.keySet()) {
-        int f = frequencyForNum.get(c);
-        if (frequencyBucket[f] == null) {
-            frequencyBucket[f] = new ArrayList<>();
+class Solution {
+    public String frequencySort(String s) {
+        if (s == null || s.length() == 0) return "";
+        // 用哈希表计数
+        HashMap<Character, Integer> count = new HashMap<>();
+        for (char c : s.toCharArray()) count.put(c, count.getOrDefault(c, 0) + 1);
+        // 桶排序，根据频率把字符放入相应桶中
+        List<Character>[] arr = new List[s.length() + 1];
+        for (char key : count.keySet()) {
+            if (arr[count.get(key)] == null) arr[count.get(key)] = new ArrayList<>();
+            arr[count.get(key)].add(key);
         }
-        frequencyBucket[f].add(c);
-    }
-    StringBuilder str = new StringBuilder();
-    for (int i = frequencyBucket.length - 1; i >= 0; i--) {
-        if (frequencyBucket[i] == null) {
-            continue;
-        }
-        for (char c : frequencyBucket[i]) {
-            for (int j = 0; j < i; j++) {
-                str.append(c);
+        // 将字符按频率从高到低存入结果中
+        StringBuilder res = new StringBuilder();
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] != null) {
+                for (char c : arr[i]) {
+                    for (int j = 0; j < count.get(c); j++) {
+                        res.append(c);
+                    }
+                }
             }
         }
+        return res.toString();
     }
-    return str.toString();
+}
+```
+
+其他解法，维护一个最大堆：
+
+```java
+class Solution {
+    public String frequencySort(String s) {
+        if (s == null || s.length() == 0) return "";
+        // 哈希表计数
+        HashMap<Character, Integer> count = new HashMap<>();
+        for (char c : s.toCharArray()) count.put(c, count.getOrDefault(c, 0) + 1);
+        // 根据哈希表中的计数值建立字符的最大堆
+        PriorityQueue<Character> heap = new PriorityQueue<>((a, b) -> (count.get(b) - count.get(a)));
+        for (char key : count.keySet()) heap.add(key);
+        // 频率从大到小将字符存入答案中
+        StringBuilder res = new StringBuilder();
+        while (!heap.isEmpty()) {
+            char c = heap.poll();
+            for (int i = 0; i < count.get(c); i++) {
+                res.append(c);
+            }
+        }
+        return res.toString();
+    }
 }
 ```
 
