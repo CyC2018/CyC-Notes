@@ -12,6 +12,10 @@
 * [4. Median of Two Sorted Arrays](#6-查找区间)
 <!-- GFM-TOC -->
 
+四种二分法大总结：
+
+https://www.cnblogs.com/grandyang/p/6854825.html
+
 **正常实现**  
 
 ```text
