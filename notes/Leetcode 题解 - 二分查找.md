@@ -12,7 +12,7 @@
 * [4. Median of Two Sorted Arrays](#6-查找区间)
 <!-- GFM-TOC -->
 
-四种二分法大总结：
+五种常见二分查找题型大总结：
 
 https://www.cnblogs.com/grandyang/p/6854825.html
 
