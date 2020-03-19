@@ -16,6 +16,10 @@
 
 https://www.cnblogs.com/grandyang/p/6854825.html
 
+二分查找终极模板：
+
+https://leetcode-cn.com/problems/binary-search/solution/er-fen-cha-zhao-xiang-jie-by-labuladong/
+
 **正常实现**  
 
 ```text
