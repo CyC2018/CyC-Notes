@@ -13,6 +13,7 @@
 * [11. 实现整数的加法](#11-实现整数的加法)
 * [12. 字符串数组最大乘积](#12-字符串数组最大乘积)
 * [13. 统计从 0 \~ n 每个数的二进制表示中 1 的个数](#13-统计从-0-\~-n-每个数的二进制表示中-1-的个数)
+* [169. Majority Element](https://github.com/yhx89757/CS-Notes/blob/master/notes/169.%20Majority%20Element.md)
 <!-- GFM-TOC -->
 
 
