@@ -1,6 +1,6 @@
 <!-- GFM-TOC -->
 * [BFS](#bfs)
-	* [1091. Shortest Path in Binary Matrix](#1-计算在网格中从原点到特定点的最短路径长度)
+	* [1091. Shortest Path in Binary Matrix](https://github.com/yhx89757/CS-Notes/blob/master/notes/1091.%20Shortest%20Path%20in%20Binary%20Matrix.md)
 	* [279. Perfect Squares](#2-组成整数的最小平方数数量)
 	* [127. Word Ladder](#3-最短单词路径)
 	* [126. Word Ladder II](#3-最短单词路径)
