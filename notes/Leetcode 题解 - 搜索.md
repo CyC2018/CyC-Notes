@@ -1,9 +1,9 @@
 <!-- GFM-TOC -->
 * [BFS](#bfs)
 	* [1091. Shortest Path in Binary Matrix](https://github.com/yhx89757/CS-Notes/blob/master/notes/1091.%20Shortest%20Path%20in%20Binary%20Matrix.md)
-	* [279. Perfect Squares](#2-组成整数的最小平方数数量)
-	* [127. Word Ladder](#3-最短单词路径)
-	* [126. Word Ladder II](#3-最短单词路径)
+	* [279. Perfect Squares](https://github.com/yhx89757/CS-Notes/blob/master/notes/279.%20Perfect%20Squares.md)
+	* [127. Word Ladder](https://github.com/yhx89757/CS-Notes/edit/master/notes/127.%20Word%20Ladder.md)
+	* [126. Word Ladder II](https://github.com/yhx89757/CS-Notes/blob/master/notes/126.%20Word%20Ladder%20II.md)
 	* [102. Binary Tree Level Order Traversal](#1-二叉树的层次遍历 )
 	* [107. Binary Tree Level Order Traversal II](#2-二叉树的层次遍历2)
 	* [103. Binary Tree Zigzag Level Order Traversal](#3-二叉树的锯齿形层次遍历)
