@@ -18,6 +18,43 @@ https://www.imooc.com/article/49216
 
 https://zhuanlan.zhihu.com/p/98409057
 
+并查集终极模板：
+
+```java
+private class UF {
+   private int[] parent;
+   private int[] rank;
+   private UF(int n) {
+      parent = new int[n];
+      rank = new int[n];
+      for (int i = 0; i < n; i++) {
+          parent[i] = i;
+          rank[i] = 1;
+      }
+   }
+   public int find(int x) {
+      if (parent[x] != x) {
+          parent[x] = find(parent[x]);
+      }
+      return parent[x];
+   }
+   public void union(int u, int v) {
+      int x = find(u), y = find(v);
+      if (rank[x] <= rank[y]) {
+          parent[x] = y;
+      } else {
+          parent[y] = x;
+      }
+      if (rank[x] == rank[y]) {
+          rank[y]++;
+      }
+   }
+   public boolean isConnected(int u, int v) {
+      return find(u) == find(v);
+   }
+}
+```
+
 
 # 二分图
 
