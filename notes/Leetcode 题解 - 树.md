@@ -589,18 +589,20 @@ void dfs(TreeNode root) {
 [Leetcode](https://leetcode.com/problems/binary-tree-preorder-traversal/description/) / [力扣](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/description/)
 
 ```java
-public List<Integer> preorderTraversal(TreeNode root) {
-    List<Integer> ret = new ArrayList<>();
-    Stack<TreeNode> stack = new Stack<>();
-    stack.push(root);
-    while (!stack.isEmpty()) {
-        TreeNode node = stack.pop();
-        if (node == null) continue;
-        ret.add(node.val);
-        stack.push(node.right);  // 先右后左，保证左子树先遍历
-        stack.push(node.left);
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            res.add(cur.val);
+            if (cur.right != null) stack.push(cur.right);
+            if (cur.left != null) stack.push(cur.left);
+        }
+        return res;
     }
-    return ret;
 }
 ```
 
@@ -613,19 +615,21 @@ public List<Integer> preorderTraversal(TreeNode root) {
 前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
 
 ```java
-public List<Integer> postorderTraversal(TreeNode root) {
-    List<Integer> ret = new ArrayList<>();
-    Stack<TreeNode> stack = new Stack<>();
-    stack.push(root);
-    while (!stack.isEmpty()) {
-        TreeNode node = stack.pop();
-        if (node == null) continue;
-        ret.add(node.val);
-        stack.push(node.left);
-        stack.push(node.right);
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            res.add(cur.val);
+            if (cur.right != null) stack.push(cur.right);
+            if (cur.left != null) stack.push(cur.left);
+        }
+        Collections.reverse(res);
+        return res;
     }
-    Collections.reverse(ret);
-    return ret;
 }
 ```
 
@@ -636,21 +640,23 @@ public List<Integer> postorderTraversal(TreeNode root) {
 [Leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/description/) / [力扣](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/description/)
 
 ```java
-public List<Integer> inorderTraversal(TreeNode root) {
-    List<Integer> ret = new ArrayList<>();
-    if (root == null) return ret;
-    Stack<TreeNode> stack = new Stack<>();
-    TreeNode cur = root;
-    while (cur != null || !stack.isEmpty()) {
-        while (cur != null) {
-            stack.push(cur);
-            cur = cur.left;
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            TreeNode node = stack.pop();
+            res.add(node.val);
+            cur = node.right;
         }
-        TreeNode node = stack.pop();
-        ret.add(node.val);
-        cur = node.right;
+        return res;
     }
-    return ret;
 }
 ```
 
