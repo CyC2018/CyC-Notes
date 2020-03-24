@@ -635,7 +635,7 @@ class Solution {
 
 ## 3. 非递归实现二叉树的中序遍历 (中序遍历才是真正模拟dfs执行过程的，因为中序遍历中的stack跟dfs的递归栈是一样的）
 
-值得注意的是前序遍历的stack只是预先存了访问顺序，使得出栈顺序跟dfs相同，但中序遍历的stack真正按照dfs执行顺序入栈和出栈的。
+值得注意的是前序遍历的stack只是预先存了接下来要访问的顺序，所以出栈顺序跟dfs相同，但中序遍历的stack真正的先一头扎到底，按照dfs执行顺序入栈和出栈的。
 
 94\. Binary Tree Inorder Traversal (Medium)
 
