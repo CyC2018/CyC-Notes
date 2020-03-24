@@ -650,12 +650,12 @@ class Solution {
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
-                stack.push(cur);
+                stack.add(cur);
                 cur = cur.left;
             }
-            TreeNode node = stack.pop();
-            res.add(node.val);
-            cur = node.right;
+            cur = stack.pop();
+            res.add(cur.val);
+            cur = cur.right;
         }
         return res;
     }
