@@ -633,7 +633,7 @@ class Solution {
 }
 ```
 
-## 3. 非递归实现二叉树的中序遍历
+## 3. 非递归实现二叉树的中序遍历 (中序遍历才是真正模拟大多数dfs执行过程的，因为中序遍历中的stack跟dfs的递归栈是一样的）
 
 94\. Binary Tree Inorder Traversal (Medium)
 
