@@ -1,8 +1,9 @@
 <!-- GFM-TOC -->
 * [斐波那契数列](#斐波那契数列)
-    * [70. Climbing Stairs](#1-爬楼梯)
-    * [198. House Robber](#2-强盗抢劫)
-    * [213. House Robber II](#3-强盗在环形街区抢劫)
+    * [70. Climbing Stairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/70.%20Climbing%20Stairs.md)
+    * [198. House Robber](https://github.com/yhx89757/CS-Notes/blob/master/notes/198.%20House%20Robber.md)
+    * [213. House Robber II](https://github.com/yhx89757/CS-Notes/blob/master/notes/213.%20House%20Robber%20II.md)
+    * [337. House Robber III](https://github.com/yhx89757/CS-Notes/blob/master/notes/337.%20House%20Robber%20III.md)
     * [信件错排](#4-信件错排)
     * [母牛生产](#5-母牛生产)
 * [矩阵路径](#矩阵路径)
