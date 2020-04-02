@@ -46,6 +46,10 @@
 
 https://zhuanlan.zhihu.com/p/24569755
 
+一个方法团灭6道股票问题：
+
+https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/solution/yi-ge-fang-fa-tuan-mie-6-dao-gu-piao-wen-ti-by-lab/
+
 递归和动态规划都是将原问题拆成多个子问题然后求解，他们之间最本质的区别是，动态规划保存了子问题的解，避免重复计算。
 
 # 斐波那契数列
