@@ -1,6 +1,6 @@
 <!-- GFM-TOC -->
 * [斐波那契数列](#斐波那契数列)
-    * [70. Climbing Stairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/70.%20Climbing%20Stairs.md)
+    * [70. Climbing Stairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/70.%20Climbing%20Stairs.md) [主页](#1-爬楼梯)
     * [198. House Robber](https://github.com/yhx89757/CS-Notes/blob/master/notes/198.%20House%20Robber.md)
     * [213. House Robber II](https://github.com/yhx89757/CS-Notes/blob/master/notes/213.%20House%20Robber%20II.md)
     * [337. House Robber III](https://github.com/yhx89757/CS-Notes/blob/master/notes/337.%20House%20Robber%20III.md)
