@@ -1,45 +1,47 @@
 <!-- GFM-TOC -->
 * [斐波那契数列](#斐波那契数列)
-    * [70. Climbing Stairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/70.%20Climbing%20Stairs.md) [主页](#1-爬楼梯)
-    * [198. House Robber](https://github.com/yhx89757/CS-Notes/blob/master/notes/198.%20House%20Robber.md)
-    * [213. House Robber II](https://github.com/yhx89757/CS-Notes/blob/master/notes/213.%20House%20Robber%20II.md)
+    * [70. Climbing Stairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/70.%20Climbing%20Stairs.md) [爬楼梯](#1-爬楼梯)
+    * [198. House Robber](https://github.com/yhx89757/CS-Notes/blob/master/notes/198.%20House%20Robber.md) [强盗抢劫](#2-强盗抢劫)
+    * [213. House Robber II](https://github.com/yhx89757/CS-Notes/blob/master/notes/213.%20House%20Robber%20II.md) [强盗在环形街区抢劫](#3-强盗在环形街区抢劫)
     * [337. House Robber III](https://github.com/yhx89757/CS-Notes/blob/master/notes/337.%20House%20Robber%20III.md)
     * [信件错排](#4-信件错排)
     * [母牛生产](#5-母牛生产)
 * [矩阵路径](#矩阵路径)
-    * [64. Minimum Path Sum](#1-矩阵的最小路径和)
-    * [62. Unique Paths](#2-矩阵的总路径数)
+    * [64. Minimum Path Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/64.%20Minimum%20Path%20Sum.md) [矩阵的最小路径和](#1-矩阵的最小路径和)
+    * [62. Unique Paths](https://github.com/yhx89757/CS-Notes/blob/master/notes/62.%20Unique%20Paths.md) [矩阵的总路径数](#2-矩阵的总路径数)
 * [数组区间](#数组区间)
-    * [303. Range Sum Query - Immutable](#1-数组区间和)
-    * [413. Arithmetic Slices](#2-数组中等差递增子区间的个数)
+    * [303. Range Sum Query - Immutable](https://github.com/yhx89757/CS-Notes/blob/master/notes/303.%20Range%20Sum%20Query%20-%20Immutable.md) [数组区间和](#1-数组区间和)
+    * [413. Arithmetic Slices](https://github.com/yhx89757/CS-Notes/blob/master/notes/413.%20Arithmetic%20Slices.md) [数组中等差递增子区间的个数](#2-数组中等差递增子区间的个数)
 * [分割整数](#分割整数)
-    * [343. Integer Break](#1-分割整数的最大乘积)
-    * [279. Perfect Squares](#2-按平方数来分割整数)
-    * [91. Decode Ways](#3-分割整数构成字母字符串)
+    * [343. Integer Break](https://github.com/yhx89757/CS-Notes/blob/master/notes/343.%20Integer%20Break.md) [分割整数的最大乘积](#1-分割整数的最大乘积)
+    * [279. Perfect Squares](https://github.com/yhx89757/CS-Notes/blob/master/notes/279.%20Perfect%20Squares.md) [按平方数来分割整数](#2-按平方数来分割整数)
+    * [91. Decode Ways](https://github.com/yhx89757/CS-Notes/blob/master/notes/91.%20Decode%20Ways.md) [分割整数构成字母字符串](#3-分割整数构成字母字符串)
 * [最长递增子序列](#最长递增子序列)
-    * [300. Longest Increasing Subsequence](#1-最长递增子序列)
-    * [646. Maximum Length of Pair Chain](#2-一组整数对能够构成的最长链)
-    * [376. Wiggle Subsequence](#3-最长摆动子序列)
+    * [300. Longest Increasing Subsequence](https://github.com/yhx89757/CS-Notes/blob/master/notes/300.%20Longest%20Increasing%20Subsequence.md) [最长递增子序列](#1-最长递增子序列)
+    * [646. Maximum Length of Pair Chain](https://github.com/yhx89757/CS-Notes/blob/master/notes/646.%20Maximum%20Length%20of%20Pair%20Chain.md) [一组整数对能够构成的最长链](#2-一组整数对能够构成的最长链)
+    * [376. Wiggle Subsequence](https://github.com/yhx89757/CS-Notes/blob/master/notes/376.%20Wiggle%20Subsequence.md) [最长摆动子序列](#3-最长摆动子序列)
 * [最长公共子序列](#最长公共子序列)
-    * [1143. Longest Common Subsequence](#1-最长公共子序列)
+    * [1143. Longest Common Subsequence](https://github.com/yhx89757/CS-Notes/blob/master/notes/1143.%20Longest%20Common%20Subsequence.md) [最长公共子序列](#1-最长公共子序列)
 * [0-1 背包](#0-1-背包)
-    * [416. Partition Equal Subset Sum](#1-划分数组为和相等的两部分)
-    * [494. Target Sum](#2-改变一组数的正负号使得它们的和为一给定数)
-    * [474. Ones and Zeroes](#3-01-字符构成最多的字符串)
-    * [322. Coin Change](#4-找零钱的最少硬币数)
-    * [518. Coin Change II](#5-找零钱的硬币数组合)
-    * [139. Word Break](#6-字符串按单词列表分割)
-    * [377. Combination Sum IV](#7-组合总和)
+    * [416. Partition Equal Subset Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/416.%20Partition%20Equal%20Subset%20Sum.md) [划分数组为和相等的两部分](#1-划分数组为和相等的两部分)
+    * [494. Target Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/494.%20Target%20Sum.md) [改变一组数的正负号使得它们的和为一给定数](#2-改变一组数的正负号使得它们的和为一给定数)
+    * [474. Ones and Zeroes](https://github.com/yhx89757/CS-Notes/blob/master/notes/474.%20Ones%20and%20Zeroes.md) [01-字符构成最多的字符串](#3-01-字符构成最多的字符串)
+    * [322. Coin Change](https://github.com/yhx89757/CS-Notes/blob/master/notes/322.%20Coin%20Change.md) [找零钱的最少硬币数](#4-找零钱的最少硬币数)
+    * [518. Coin Change II](https://github.com/yhx89757/CS-Notes/blob/master/notes/518.%20Coin%20Change%202.md) [找零钱的硬币数组合](#5-找零钱的硬币数组合)
+    * [139. Word Break](https://github.com/yhx89757/CS-Notes/blob/master/notes/139.%20Word%20Break.md) [字符串按单词列表分割](#6-字符串按单词列表分割)
+    * [377. Combination Sum IV](https://github.com/yhx89757/CS-Notes/blob/master/notes/377.%20Combination%20Sum%20IV.md) [组合总和](#7-组合总和)
 * [股票交易](#股票交易)
-    * [309. Best Time to Buy and Sell Stock with Cooldown](#1-需要冷却期的股票交易)
-    * [714. Best Time to Buy and Sell Stock with Transaction Fee](#2-需要交易费用的股票交易)
-    * [123. Best Time to Buy and Sell Stock III](#3-只能进行两次的股票交易)
-    * [188. Best Time to Buy and Sell Stock IV](#4-只能进行-k-次的股票交易)
+    * [121. Best Time to Buy and Sell Stock](https://github.com/yhx89757/CS-Notes/blob/master/notes/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md)
+    * [122. Best Time to Buy and Sell Stock II](https://github.com/yhx89757/CS-Notes/blob/master/notes/122.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II.md)
+    * [123. Best Time to Buy and Sell Stock III](https://github.com/yhx89757/CS-Notes/blob/master/notes/123.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III.md) [只能进行两次的股票交易](#3-只能进行两次的股票交易)
+    * [188. Best Time to Buy and Sell Stock IV](https://github.com/yhx89757/CS-Notes/blob/master/notes/188.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV.md) [只能进行-k-次的股票交易](#4-只能进行-k-次的股票交易)
+    * [309. Best Time to Buy and Sell Stock with Cooldown](https://github.com/yhx89757/CS-Notes/blob/master/notes/309.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown.md) [需要冷却期的股票交易](#5-需要冷却期的股票交易)
+    * [714. Best Time to Buy and Sell Stock with Transaction Fee](https://github.com/yhx89757/CS-Notes/blob/master/notes/714.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee.md) [需要交易费用的股票交易](#6-需要交易费用的股票交易)
 * [字符串编辑](#字符串编辑)
-    * [583. Delete Operation for Two Strings](#1-删除两个字符串的字符使它们相等)
-    * [72. Edit Distance](#2-编辑距离)
-    * [650. 2 Keys Keyboard](#3-复制粘贴字符)
-    * [87. Scramble String](#3-复制粘贴字符) 
+    * [583. Delete Operation for Two Strings]() [删除两个字符串的字符使它们相等](#1-删除两个字符串的字符使它们相等)
+    * [72. Edit Distance]() [编辑距离](#2-编辑距离)
+    * [650. 2 Keys Keyboard]() [复制粘贴字符](#3-复制粘贴字符)
+    * [87. Scramble String]() [复制粘贴字](#3-复制粘贴字符) 
 <!-- GFM-TOC -->
 
 一种不一样的dp：
@@ -1078,78 +1080,6 @@ class Solution {
 }
 ```
 
-## 1. 需要冷却期的股票交易
-
-309\. Best Time to Buy and Sell Stock with Cooldown(Medium)
-
-[Leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/) / [力扣](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
-
-题目描述：交易之后需要有一天的冷却时间。
-
-
-该题为马尔可夫过程，分为A观望，B持股，C冷却三个状态
-状态转移图：A-(观望)->A, A-(买入｜-price)->B, B-(观望)->B, B-(卖出|+price)->C, C-(冷却)->A
-可用维特比算法求解
-
-```java
-public int maxProfit(int[] prices) {
-    if (prices == null || prices.length == 0) {
-        return 0;
-    }
-    int N = prices.length;
-    int[] A = new int[N];
-    int[] B = new int[N];
-    int[] C = new int[N];
-    A[0] = 0;
-    B[0] = C[0] = -prices[0];
-    for (int i = 1; i < N; i++) {
-        A[i] = Math.max(A[i - 1], C[i - 1]);
-        B[i] = Math.max(B[i - 1], A[i - 1] - prices[i]);
-        C[i] = B[i - 1] + prices[i];
-    }
-    return Math.max(A[N - 1], C[N - 1]);
-}
-```
-
-## 2. 需要交易费用的股票交易
-
-714\. Best Time to Buy and Sell Stock with Transaction Fee (Medium)
-
-[Leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/) / [力扣](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
-
-```html
-Input: prices = [1, 3, 2, 8, 4, 9], fee = 2
-Output: 8
-Explanation: The maximum profit can be achieved by:
-Buying at prices[0] = 1
-Selling at prices[3] = 8
-Buying at prices[4] = 4
-Selling at prices[5] = 9
-The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
-```
-
-题目描述：每交易一次，都要支付一定的费用。
-
-
-分为A观望，B持股，两个状态
-状态转移图：A-(观望)->A, A-(买入|-price)->B, B-(观望)->B, B-(卖出|+price|-fee)->A
-
-```java
-public int maxProfit(int[] prices, int fee) {
-    int N = prices.length;
-    int[] A = new int[N];
-    int[] B = new int[N];
-    A[0] = 0;
-    B[0] = -prices[0];
-    for (int i = 1; i < N; i++) {
-        A[i] = Math.max(A[i - 1], B[i - 1] + prices[i] -fee);
-        B[i] = Math.max(A[i - 1] - prices[i], B[i - 1]);
-    }
-    return A[N - 1];
-}
-```
-
-
 ## 3. 只能进行两次的股票交易
 
 123\. Best Time to Buy and Sell Stock III (Hard)
@@ -1205,6 +1135,77 @@ public int maxProfit(int k, int[] prices) {
         }
     }
     return maxProfit[k][n - 1];
+}
+```
+
+## 5. 需要冷却期的股票交易
+
+309\. Best Time to Buy and Sell Stock with Cooldown(Medium)
+
+[Leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/) / [力扣](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/)
+
+题目描述：交易之后需要有一天的冷却时间。
+
+
+该题为马尔可夫过程，分为A观望，B持股，C冷却三个状态
+状态转移图：A-(观望)->A, A-(买入｜-price)->B, B-(观望)->B, B-(卖出|+price)->C, C-(冷却)->A
+可用维特比算法求解
+
+```java
+public int maxProfit(int[] prices) {
+    if (prices == null || prices.length == 0) {
+        return 0;
+    }
+    int N = prices.length;
+    int[] A = new int[N];
+    int[] B = new int[N];
+    int[] C = new int[N];
+    A[0] = 0;
+    B[0] = C[0] = -prices[0];
+    for (int i = 1; i < N; i++) {
+        A[i] = Math.max(A[i - 1], C[i - 1]);
+        B[i] = Math.max(B[i - 1], A[i - 1] - prices[i]);
+        C[i] = B[i - 1] + prices[i];
+    }
+    return Math.max(A[N - 1], C[N - 1]);
+}
+```
+
+## 6. 需要交易费用的股票交易
+
+714\. Best Time to Buy and Sell Stock with Transaction Fee (Medium)
+
+[Leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/) / [力扣](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/)
+
+```html
+Input: prices = [1, 3, 2, 8, 4, 9], fee = 2
+Output: 8
+Explanation: The maximum profit can be achieved by:
+Buying at prices[0] = 1
+Selling at prices[3] = 8
+Buying at prices[4] = 4
+Selling at prices[5] = 9
+The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
+```
+
+题目描述：每交易一次，都要支付一定的费用。
+
+
+分为A观望，B持股，两个状态
+状态转移图：A-(观望)->A, A-(买入|-price)->B, B-(观望)->B, B-(卖出|+price|-fee)->A
+
+```java
+public int maxProfit(int[] prices, int fee) {
+    int N = prices.length;
+    int[] A = new int[N];
+    int[] B = new int[N];
+    A[0] = 0;
+    B[0] = -prices[0];
+    for (int i = 1; i < N; i++) {
+        A[i] = Math.max(A[i - 1], B[i - 1] + prices[i] -fee);
+        B[i] = Math.max(A[i - 1] - prices[i], B[i - 1]);
+    }
+    return A[N - 1];
 }
 ```
 
