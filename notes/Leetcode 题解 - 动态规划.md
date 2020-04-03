@@ -1046,6 +1046,35 @@ public int combinationSum4(int[] nums, int target) {
 
 # 股票交易
 
+##### 股票交易终极模板
+**为什么状态转移方程中有k-1?**
+参考背包问题，这个k就相当于背包问题里的总体积V，当确定需要第i个物品时，就需要将体积减去第i个物品的体积。类似的，当你确定第i天买入股票时，前i-1天最大允许的交易次数就是k-1。
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+        int n = prices.length;
+        int maxK = 1;
+        int[][][] dp = new int[n + 1][maxK + 1][2];
+        for (int i = 0; i <= n; i++) dp[i][0][1] = Integer.MIN_VALUE;
+        for (int k = 0; k <= maxK; k++) dp[0][k][1] = Integer.MIN_VALUE;
+        for (int i = 1; i <= n; i++) {
+            for (int k = 1; k <= maxK; k++) {
+                dp[i][k][0] = Math.max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i - 1]);
+                dp[i][k][1] = Math.max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i - 1]);
+            }
+        }
+        // for (int k = 0; k <= maxK; k++) {
+        //     for (int i = 0; i <= n; i++) {
+        //         System.out.print("("+dp[i][k][0]+","+dp[i][k][1]+") ");
+        //     }
+        //     System.out.println();
+        // }
+        return dp[n][maxK][0];
+    }
+}
+```
+
 ## 1. 需要冷却期的股票交易
 
 309\. Best Time to Buy and Sell Stock with Cooldown(Medium)
