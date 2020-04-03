@@ -1047,7 +1047,7 @@ public int combinationSum4(int[] nums, int target) {
 # 股票交易
 
 ##### 股票交易终极模板
-**为什么状态转移方程中有k-1?**
+**为什么状态转移方程中有k-1?**\
 参考背包问题，这个k就相当于背包问题里的总体积V，当确定需要第i个物品时，就需要将体积减去第i个物品的体积。类似的，当你确定第i天买入股票时，前i-1天最大允许的交易次数就是k-1。
 ```java
 class Solution {
@@ -1056,7 +1056,10 @@ class Solution {
         int n = prices.length;
         int maxK = 1;
         int[][][] dp = new int[n + 1][maxK + 1][2];
+        // 初始化，只要i或者k有任何一个为0，都不可能持有股票，所以为了不选这些情况，设置成Integer.MIN_VALUE
+        // k为允许交易次数（也就是背包还剩多少空间，每次买入只减1个空间），当天的k为0的时候，无论给你多少股票都无法购买
         for (int i = 0; i <= n; i++) dp[i][0][1] = Integer.MIN_VALUE;
+        // i为天数，i=0第0天，没有任何股票可以选择，所以更不可能持有股票，无法购买
         for (int k = 0; k <= maxK; k++) dp[0][k][1] = Integer.MIN_VALUE;
         for (int i = 1; i <= n; i++) {
             for (int k = 1; k <= maxK; k++) {
