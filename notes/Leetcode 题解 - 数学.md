@@ -90,6 +90,7 @@ int lcm(int a, int b) {
 
 ## 3. 使用位操作和减法求解最大公约数
 更相减损算法的证明（采用反证法证明b和a-b有公约数，且这个公约数就是a和b的最大公约数）：https://blog.csdn.net/chekongfu/article/details/93169343
+
 [编程之美：2.7](#)
 
 对于 a 和 b 的最大公约数 f(a, b)，有：
