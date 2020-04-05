@@ -27,7 +27,7 @@ https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/discuss
 
 重叠区间问题可以总结为在坐标轴上若干个位置为 (start(i),end(i))的区间，要求求解这些区间中有多少个不重叠区间，或者合并重叠的区间。
 
-该问题分两类：第一类求重叠区间个数（leetcode 452，435），第二类求合并后的区间（leetcode 56，763）。
+该问题分两类：第一类求不重叠区间个数（leetcode 452，435），第二类求合并后的区间（leetcode 56，763）。
 
 对于第一类问题，通常按照end排序，维护一个end变量即可。
 
