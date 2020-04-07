@@ -10,6 +10,7 @@
 	* [429. N-ary Tree Level Order Traversal](https://github.com/yhx89757/CS-Notes/blob/master/notes/429.%20N-ary%20Tree%20Level%20Order%20Traversal.md)
 	* [111. Minimum Depth of Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/111.%20Minimum%20Depth%20of%20Binary%20Tree.md)
 	* [637. Average of Levels in Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/637.%20Average%20of%20Levels%20in%20Binary%20Tree.md)
+	* [297. Serialize and Deserialize Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/297.%20Serialize%20and%20Deserialize%20Binary%20Tree.md)
 * [DFS](#dfs)
 	* [695. Max Area of Island](https://github.com/yhx89757/CS-Notes/blob/master/notes/695.%20Max%20Area%20of%20Island.md)
 	* [200. Number of Islands](https://github.com/yhx89757/CS-Notes/blob/master/notes/200.%20Number%20of%20Islands.md)
