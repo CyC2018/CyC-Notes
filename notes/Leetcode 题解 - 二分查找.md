@@ -49,11 +49,11 @@ int left_bound(int[] nums, int target) {
         } else if (nums[mid] > target) {
             right = mid - 1;
         } else if (nums[mid] == target) {
-            // 别返回，收缩左侧边界
+            // 别返回，继续往左边找
             right = mid - 1;
         }
     }
-    // 最后要检查 left 越界的情况
+    // 最后要检查 left 越界的情况，返回什么检查什么
     if (left >= nums.length || nums[left] != target)
         return -1;
     return left;
@@ -69,11 +69,11 @@ int right_bound(int[] nums, int target) {
         } else if (nums[mid] > target) {
             right = mid - 1;
         } else if (nums[mid] == target) {
-            // 别返回，收缩右侧边界
+            // 别返回，继续往右边找
             left = mid + 1;
         }
     }
-    // 最后要检查 right 越界的情况
+    // 最后要检查 right 越界的情况，返回什么检查什么
     if (right < 0 || nums[right] != target)
         return -1;
     return right;
