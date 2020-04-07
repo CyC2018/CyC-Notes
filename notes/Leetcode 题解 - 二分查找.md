@@ -9,7 +9,7 @@
 * [33. Search in Rotated Sorted Array](#6-查找区间)
 * [81. Search in Rotated Sorted Array II](#6-查找区间)
 * [34. Find First and Last Position of Element in Sorted Array](#6-查找区间)
-* [4. Median of Two Sorted Arrays](#6-查找区间)
+* [4. Median of Two Sorted Arrays](https://github.com/yhx89757/CS-Notes/blob/master/notes/4.%20Median%20of%20Two%20Sorted%20Arrays.md)
 <!-- GFM-TOC -->
 
 五种常见二分查找题型大总结：
