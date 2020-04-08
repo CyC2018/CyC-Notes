@@ -1,0 +1,24 @@
+[Leetcode](https://leetcode.com/problems/teemo-attacking/)
+
+## minStart + maxEnd
+就是一个merge interval的简单题，维护一个minStart和maxEnd即可。
+```java
+class Solution {
+    public int findPoisonedDuration(int[] timeSeries, int duration) {
+        if (timeSeries == null || timeSeries.length == 0 || duration == 0) return 0;
+        int minStart = timeSeries[0], maxEnd = timeSeries[0] + duration - 1;
+        int res = 0;
+        for (int time : timeSeries) {
+            if (maxEnd < time) {
+                res += maxEnd - minStart + 1;
+                minStart = time;
+                maxEnd = time + duration - 1;
+            } else {
+                maxEnd = Math.max(maxEnd, time + duration - 1);
+            }
+        }
+        res += maxEnd - minStart + 1;
+        return res;
+    }
+}
+```
