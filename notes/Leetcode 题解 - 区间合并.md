@@ -2,7 +2,7 @@
 * [452. Minimum Number of Arrows to Burst Balloons](https://github.com/yhx89757/CS-Notes/blob/master/notes/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons.md)
 * [435. Non-overlapping Intervals](https://github.com/yhx89757/CS-Notes/blob/master/notes/435.%20Non-overlapping%20Intervals.md)
 * [56. Merge Intervals](https://github.com/yhx89757/CS-Notes/blob/master/notes/56.%20Merge%20Intervals.md)
-* [763. Partition Labels](#4-我的日程安排表1)
+* [763. Partition Labels](https://github.com/yhx89757/CS-Notes/blob/master/notes/763.%20Partition%20Labels.md)
 * [57. Insert Interval](https://github.com/yhx89757/CS-Notes/blob/master/notes/57.%20Insert%20Interval.md)
 * [986. Interval List Intersections](#3-区间列表的交集)
 * [729. My Calendar I](#4-我的日程安排表1)
