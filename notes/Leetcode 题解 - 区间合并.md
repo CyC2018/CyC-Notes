@@ -4,17 +4,17 @@
 * [56. Merge Intervals](https://github.com/yhx89757/CS-Notes/blob/master/notes/56.%20Merge%20Intervals.md)
 * [763. Partition Labels](https://github.com/yhx89757/CS-Notes/blob/master/notes/763.%20Partition%20Labels.md)
 * [57. Insert Interval](https://github.com/yhx89757/CS-Notes/blob/master/notes/57.%20Insert%20Interval.md)
-* [986. Interval List Intersections](#3-区间列表的交集)
-* [729. My Calendar I](#4-我的日程安排表1)
-* [218. The Skyline Problem](#4-我的日程安排表1)
+* [986. Interval List Intersections](https://github.com/yhx89757/CS-Notes/blob/master/notes/986.%20Interval%20List%20Intersections.md)
+* [729. My Calendar I](https://github.com/yhx89757/CS-Notes/blob/master/notes/729.%20My%20Calendar%20I.md)
+* [218. The Skyline Problem](https://github.com/yhx89757/CS-Notes/blob/master/notes/218.%20The%20Skyline%20Problem.md)
 * [252. Meeting Rooms](https://github.com/yhx89757/CS-Notes/blob/master/notes/252.%20Meeting%20Rooms.md)
 * [253. Meeting Rooms II](https://github.com/yhx89757/CS-Notes/blob/master/notes/253.%20Meeting%20Rooms%20II.md)
 * [759. Employee Free Time](#4-我的日程安排表1)
-* [495. Teemo Attacking](#4-我的日程安排表1)
+* [495. Teemo Attacking](https://github.com/yhx89757/CS-Notes/blob/master/notes/495.%20Teemo%20Attacking)
 * [616. Add Bold Tag in String](#4-我的日程安排表1)
 * [715. Range Module](#4-我的日程安排表1)
-* [436. Find Right Interval](#4-我的日程安排表1)
-* [352. Data Stream as Disjoint Intervals](#4-我的日程安排表1)
+* [436. Find Right Interval](https://github.com/yhx89757/CS-Notes/blob/master/notes/436.%20Find%20Right%20Interval.md)
+* [352. Data Stream as Disjoint Intervals](https://github.com/yhx89757/CS-Notes/blob/master/notes/352.%20Data%20Stream%20as%20Disjoint%20Intervals.md)
 <!-- GFM-TOC -->
 
 https://zhuanlan.zhihu.com/p/90664857
