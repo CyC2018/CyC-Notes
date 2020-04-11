@@ -14,6 +14,8 @@
     * [12. 相同节点值的最大路径长度](#12-相同节点值的最大路径长度)
     * [13. 间隔遍历](#13-间隔遍历)
     * [14. 找出二叉树中第二小的节点](#14-找出二叉树中第二小的节点)
+    * [98. Validate Binary Search Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/98.%20Validate%20Binary%20Search%20Tree.md)
+    * [99. Recover Binary Search Tree](https://github.com/yhx89757/CS-Notes/edit/master/notes/99.%20Recover%20Binary%20Search%20Tree.md)
 * [层次遍历](#层次遍历)
     * [1. 一棵树每层节点的平均数](#1-一棵树每层节点的平均数)
     * [2. 得到左下角的节点](#2-得到左下角的节点)
