@@ -1,7 +1,7 @@
 <!-- GFM-TOC -->
 * [递归](#递归)
-    * [104. Maximum Depth of Binary Tree]() [树的高度](#1-树的高度)
-    * [110. Balanced Binary Tree]() [平衡树](#2-平衡树)
+    * [104. Maximum Depth of Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/104.%20Maximum%20Depth%20of%20Binary%20Tree.md) [树的高度](#1-树的高度)
+    * [110. Balanced Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/110.%20Balanced%20Binary%20Tree.md) [平衡树](#2-平衡树)
     * [543. Diameter of Binary Tree]() [两节点的最长路径](#3-两节点的最长路径)
     * [226. Invert Binary Tree]() [翻转树](#4-翻转树)
     * [617. Merge Two Binary Trees]() [归并两棵树](#5-归并两棵树)
@@ -613,22 +613,80 @@ class Solution {
 
 [Leetcode](https://leetcode.com/problems/binary-tree-postorder-traversal/description/) / [力扣](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/description/)
 
-前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。
-
+最好用模板！
+```java
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode pre = null;
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.add(cur);
+                cur = cur.left;
+            }
+            // 先不急着弹出，试着往右走走
+            cur = stack.peek();
+            // 不能往右走，再弹出并更新pre和自己cur
+            if (cur.right == null || cur.right == pre) {
+                res.add(cur.val);
+                stack.pop();
+                pre = cur;
+                cur = null;
+            } else { // 能往右走
+                cur = cur.right;
+            }
+        }
+        return res;
+    }
+}
+```
+最奇特的解法，每次加进去两次。
+```java
+class Solution {
+    // 每次都push两遍，第一次pop出来的node是为了生成左孩子和右孩子用的，第二次才作为输出
+    // 通过检测pop出来的跟下面的peek一下是否相同来做决定，如果相同则生成左右孩子，如果不同就把值加入结果
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode cur = stack.pop();
+            if (!stack.isEmpty() && cur == stack.peek()) { // 跟下面的node相同，则生成孩子
+                if (cur.right != null) {
+                    stack.push(cur.right);
+                    stack.push(cur.right);
+                }
+                if (cur.left != null) {
+                    stack.push(cur.left);
+                    stack.push(cur.left);
+                }
+            } else { // 跟下面的node不同，则作为结果输出
+                res.add(cur.val);
+            }
+        }
+        return res;
+    }
+}
+```
+前序遍历为 root -> left -> right，后序遍历为 left -> right -> root。可以修改前序遍历成为 root -> right -> left，那么这个顺序就和后序遍历正好相反。把结果的数据结构用linkedlist代替arraylist，每次加在开头即可。
 ```java
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> res = new LinkedList<>();
         if (root == null) return res;
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode cur = stack.pop();
-            res.add(cur.val);
+            res.add(0, cur.val);
             if (cur.right != null) stack.push(cur.right);
             if (cur.left != null) stack.push(cur.left);
         }
-        Collections.reverse(res);
         return res;
     }
 }
@@ -641,7 +699,7 @@ class Solution {
 94\. Binary Tree Inorder Traversal (Medium)
 
 [Leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/description/) / [力扣](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/description/)
-
+最好用模板！
 ```java
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
