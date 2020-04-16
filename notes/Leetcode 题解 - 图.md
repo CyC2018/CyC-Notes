@@ -8,6 +8,8 @@
     * [269. Alien Dictionary](https://www.lintcode.com/problem/alien-dictionary/description)
 * [并查集](#并查集)
     * [684. Redundant Connection](#1-冗余连接)
+* [Critical Connections]()
+    * [1192. Critical Connections in a Network](https://github.com/yhx89757/CS-Notes/blob/master/notes/1192.%20Critical%20Connections%20in%20a%20Network.md)
 <!-- GFM-TOC -->
 
 并查集文章：
