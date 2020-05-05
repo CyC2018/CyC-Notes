@@ -1196,54 +1196,46 @@ Input: sum("ap"), Output: 5
 
 ```java
 class MapSum {
-
-    private class Node {
-        Node[] child = new Node[26];
-        int value;
+    private class TrieNode {
+        public int val;
+        public TrieNode[] children = new TrieNode[26];
     }
-
-    private Node root = new Node();
-
+    TrieNode root;
+    Map<TrieNode, Integer> hash;
     public MapSum() {
-
+        root = new TrieNode();
+        hash = new HashMap<>();
     }
-
     public void insert(String key, int val) {
-        insert(key, root, val);
-    }
-
-    private void insert(String key, Node node, int val) {
-        if (node == null) return;
-        if (key.length() == 0) {
-            node.value = val;
-            return;
+        hash.clear();
+        TrieNode cur = root;
+        for (int i = 0; i < key.length(); i++) {
+            char c = key.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) cur.children[index] = new TrieNode();
+            cur = cur.children[index];
         }
-        int index = indexForChar(key.charAt(0));
-        if (node.child[index] == null) {
-            node.child[index] = new Node();
-        }
-        insert(key.substring(1), node.child[index], val);
+        cur.val = val;
     }
-
     public int sum(String prefix) {
-        return sum(prefix, root);
+        TrieNode cur = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) return 0;
+            cur = cur.children[index];
+        }
+        return dfs(cur);
     }
-
-    private int sum(String prefix, Node node) {
-        if (node == null) return 0;
-        if (prefix.length() != 0) {
-            int index = indexForChar(prefix.charAt(0));
-            return sum(prefix.substring(1), node.child[index]);
+    private int dfs(TrieNode cur) {
+        if (cur == null) return 0;
+        if (hash.containsKey(cur)) return hash.get(cur);
+        int sum = cur.val;
+        for (int i = 0; i < 26; i++) {
+            sum += cur.children[i] != null ? dfs(cur.children[i]) : 0;
         }
-        int sum = node.value;
-        for (Node child : node.child) {
-            sum += sum(prefix, child);
-        }
+        hash.put(cur, sum);
         return sum;
-    }
-
-    private int indexForChar(char c) {
-        return c - 'a';
     }
 }
 ```
