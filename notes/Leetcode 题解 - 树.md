@@ -1125,58 +1125,46 @@ Trie，又称前缀树或字典树，用于判断字符串是否存在或者是�
 
 ```java
 class Trie {
-
-    private class Node {
-        Node[] childs = new Node[26];
-        boolean isLeaf;
+    private class TrieNode {
+        public boolean isEnd;
+        public TrieNode[] children = new TrieNode[26];
     }
-
-    private Node root = new Node();
-
+    private TrieNode root;
     public Trie() {
+        root = new TrieNode();
     }
-
+    
     public void insert(String word) {
-        insert(word, root);
-    }
-
-    private void insert(String word, Node node) {
-        if (node == null) return;
-        if (word.length() == 0) {
-            node.isLeaf = true;
-            return;
+        TrieNode cur = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) cur.children[index] = new TrieNode();
+            cur = cur.children[index];
         }
-        int index = indexForChar(word.charAt(0));
-        if (node.childs[index] == null) {
-            node.childs[index] = new Node();
-        }
-        insert(word.substring(1), node.childs[index]);
+        cur.isEnd = true;
     }
-
+    
     public boolean search(String word) {
-        return search(word, root);
+        TrieNode cur = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) return false;
+            cur = cur.children[index];
+        }
+        return cur.isEnd;
     }
-
-    private boolean search(String word, Node node) {
-        if (node == null) return false;
-        if (word.length() == 0) return node.isLeaf;
-        int index = indexForChar(word.charAt(0));
-        return search(word.substring(1), node.childs[index]);
-    }
-
+    
     public boolean startsWith(String prefix) {
-        return startWith(prefix, root);
-    }
-
-    private boolean startWith(String prefix, Node node) {
-        if (node == null) return false;
-        if (prefix.length() == 0) return true;
-        int index = indexForChar(prefix.charAt(0));
-        return startWith(prefix.substring(1), node.childs[index]);
-    }
-
-    private int indexForChar(char c) {
-        return c - 'a';
+        TrieNode cur = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            int index = c - 'a';
+            if (cur.children[index] == null) return false;
+            cur = cur.children[index];
+        }
+        return true;
     }
 }
 ```
