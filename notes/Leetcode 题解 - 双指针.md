@@ -1,5 +1,5 @@
 <!-- GFM-TOC -->
-* [1. Two Sum](#1-有序数组的-two-sum)
+* [167. Two Sum II - Input array is sorted](https://github.com/yhx89757/CS-Notes/blob/master/notes/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.md)
 * [633. Sum of Square Numbers](#2-两数平方和)
 * [345. Reverse Vowels of a String](#3-反转字符串中的元音字符)
 * [680. Valid Palindrome II](#4-回文字符串)
