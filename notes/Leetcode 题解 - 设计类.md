@@ -1,5 +1,5 @@
 <!-- GFM-TOC -->
-* [705. Design HashSet]()
+* [705. Design HashSet](https://github.com/yhx89757/CS-Notes/blob/master/notes/705.%20Design%20HashSet.md)
 * [706. Design HashMap]()
 * [707. Design Linked List]()
 * [348. Design Tic-Tac-Toe]()
