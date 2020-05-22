@@ -1124,29 +1124,27 @@ Trie，又称前缀树或字典树，用于判断字符串是否存在或者是�
 [Leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/description/) / [力扣](https://leetcode-cn.com/problems/implement-trie-prefix-tree/description/)
 
 ```java
-class Trie {
-    private class TrieNode {
-        public boolean isEnd;
-        public TrieNode[] children = new TrieNode[26];
+class Trie{
+    private class Node {
+        private boolean isEnd;
+        private Node[] children = new Node[26];
     }
-    private TrieNode root;
+    private Node root;
     public Trie() {
-        root = new TrieNode();
+        root = new Node();
     }
-    
     public void insert(String word) {
-        TrieNode cur = root;
+        Node cur = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int index = c - 'a';
-            if (cur.children[index] == null) cur.children[index] = new TrieNode();
+            if (cur.children[index] == null) cur.children[index] = new Node();
             cur = cur.children[index];
         }
         cur.isEnd = true;
     }
-    
     public boolean search(String word) {
-        TrieNode cur = root;
+        Node cur = root;
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             int index = c - 'a';
@@ -1155,9 +1153,8 @@ class Trie {
         }
         return cur.isEnd;
     }
-    
     public boolean startsWith(String prefix) {
-        TrieNode cur = root;
+        Node cur = root;
         for (int i = 0; i < prefix.length(); i++) {
             char c = prefix.charAt(i);
             int index = c - 'a';
