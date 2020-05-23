@@ -10,7 +10,7 @@
 * [84. Largest Rectangle in Histogram](#6-循环数组中比当前元素大的下一个元素)
 * [150. Evaluate Reverse Polish Notation](#6-循环数组中比当前元素大的下一个元素)
 * [85. Maximal Rectangle](#6-循环数组中比当前元素大的下一个元素)
-* [394. Decode String]()
+* [394. Decode String](https://github.com/yhx89757/CS-Notes/blob/master/notes/394.%20Decode%20String.md)
 <!-- GFM-TOC -->
 
 单调栈文章：
