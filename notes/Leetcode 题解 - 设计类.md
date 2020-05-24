@@ -8,7 +8,7 @@
 * [622. Design Circular Queue](https://github.com/yhx89757/CS-Notes/blob/master/notes/622.%20Design%20Circular%20Queue.md)
 * [641. Design Circular Deque](https://github.com/yhx89757/CS-Notes/blob/master/notes/641.%20Design%20Circular%20Deque.md)
 * [635. Design Log Storage System](https://github.com/yhx89757/CS-Notes/blob/master/notes/635.%20Design%20Log%20Storage%20System.md)
-* [355. Design Twitter]()
+* [355. Design Twitter](https://github.com/yhx89757/CS-Notes/blob/master/notes/355.%20Design%20Twitter.md)
 * [604. Design Compressed String Iterator]()
 * [1396. Design Underground System]()
 * [379. Design Phone Directory]()
