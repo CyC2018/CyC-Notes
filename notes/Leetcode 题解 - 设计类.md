@@ -11,6 +11,7 @@
 * [355. Design Twitter]()
 * [604. Design Compressed String Iterator]()
 * [1396. Design Underground System]()
+* [379. Design Phone Directory]()
 * [642. Design Search Autocomplete System]()
 * [1244. Design A Leaderboard]()
 * [1381. Design a Stack With Increment Operation]()
@@ -19,5 +20,4 @@
 * [631. Design Excel Sum Formula]()
 * [1188. Design Bounded Blocking Queue]()
 * [1206. Design Skiplist]()
-* [379. Design Phone Directory]()
 <!-- GFM-TOC -->
