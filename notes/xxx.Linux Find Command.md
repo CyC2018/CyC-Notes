@@ -1,6 +1,6 @@
 [Leetcode](https://leetcode.com/discuss/interview-question/369272/Amazon-or-Onsite-or-Linux-Find-Command)
 
-## strategy pattern (optimal)
+## interface Filter(strategy pattern) + dfs(if not file) (optimal)
 ```java
 public class Main {
     public class File {
