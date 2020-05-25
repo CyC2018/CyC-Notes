@@ -5,15 +5,15 @@
 public class Main {
     public class File {
         String name;
+        boolean isFile;
         int size;
         String type;
-        boolean isFile;
         Map<String, File> files;
-        public File(String name, int size, String type, boolean isFile) {
+        public File(String name, boolean isFile, int size, String type) {
             this.name = name;
+            this.isFile = isFile;
             this.size = size;
             this.type = type;
-            this.isFile = isFile;
             this.files = new HashMap<>();
         }
     }
@@ -21,7 +21,7 @@ public class Main {
         public boolean apply(File file);
     }
     public class MinSizeFilter implements Filter {
-        int minSize;
+        private int minSize;
         public MinSizeFilter(int minSize) {
             this.minSize = minSize;
         }
@@ -31,7 +31,7 @@ public class Main {
         }
     }
     public class TypeFilter implements Filter {
-        String type;
+        private String type;
         public TypeFilter(String type) {
             this.type = type;
         }
@@ -41,8 +41,8 @@ public class Main {
         }
     }
     public class NotFilter implements Filter {
-        Filter filter;
-        NotFilter(Filter filter) {
+        private Filter filter;
+        public NotFilter(Filter filter) {
             this.filter = filter;
         }
         @Override
@@ -51,8 +51,8 @@ public class Main {
         }
     }
     public class OrFilter implements Filter {
-        List<Filter> filters;
-        OrFilter(List<Filter> filters) {
+        private List<Filter> filters;
+        public OrFilter(List<Filter> filters) {
             this.filters = filters;
         }
         @Override
@@ -64,8 +64,8 @@ public class Main {
         }
     }
     public class AndFilter implements Filter {
-        List<Filter> filters;
-        AndFilter(List<Filter> filters) {
+        private List<Filter> filters;
+        public AndFilter(List<Filter> filters) {
             this.filters = filters;
         }
         @Override
@@ -78,7 +78,10 @@ public class Main {
     }
     public List<File> findWithFilters(File file, List<Filter> filters) {
         List<File> res = new ArrayList<>();
-        if (file.isFile) return res;
+        if (file.isFile) {
+            System.out.println("not a directory!");
+            return res;
+        }
         dfs(file, filters, res);
         return res;
     }
@@ -101,14 +104,14 @@ public class Main {
         }
     }
     public void test() {
-        File d1 = new File("d1",0,"",false);
-        File d1d1 = new File("d1d1",0,"",false);
+        File d1 = new File("d1",false,0,"");
+        File d1d1 = new File("d1d1",false,0,"");
         d1.files.put(d1d1.name, d1d1);
-        File d1f1 = new File("d1f1",2,"xml",true);
+        File d1f1 = new File("d1f1",true,2,"xml");
         d1.files.put(d1f1.name, d1f1);
-        File d1d1f1 = new File("d1d1f1",6,"txt",true);
+        File d1d1f1 = new File("d1d1f1",true,6,"txt");
         d1d1.files.put(d1d1f1.name, d1d1f1);
-        File d1d1f2 = new File("d1d1f2",3,"txt",true);
+        File d1d1f2 = new File("d1d1f2",true,3,"txt");
         d1d1.files.put(d1d1f2.name, d1d1f2);
         Filter filter1 = new MinSizeFilter(4);
         Filter filter2 = new TypeFilter("xml");
