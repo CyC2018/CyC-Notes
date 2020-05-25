@@ -10,7 +10,7 @@
 * [635. Design Log Storage System](https://github.com/yhx89757/CS-Notes/blob/master/notes/635.%20Design%20Log%20Storage%20System.md)
 * [355. Design Twitter](https://github.com/yhx89757/CS-Notes/blob/master/notes/355.%20Design%20Twitter.md)
 * [604. Design Compressed String Iterator](https://github.com/yhx89757/CS-Notes/blob/master/notes/604.%20Design%20Compressed%20String%20Iterator.md)
-* [xxx. Linux Find Command](https://github.com/yhx89757/CS-Notes/blob/master/notes/xxx.Linux%20Find%20Command.md)
+* [???. Linux Find Command](https://github.com/yhx89757/CS-Notes/blob/master/notes/%3F%3F%3F.Linux%20Find%20Command.md)
 * [1396. Design Underground System]()
 * [379. Design Phone Directory]()
 * [642. Design Search Autocomplete System]()
