@@ -6,7 +6,7 @@
     * [347. Top K Frequent Elements](#1-出现频率最多的-k-个元素)
     * [451. Sort Characters By Frequency](#2-按照字符出现次数对字符串排序)
 * [荷兰国旗问题](#荷兰国旗问题)
-    * [75. Sort Colors](#1-按颜色进行排序)
+    * [75. Sort Colors](https://github.com/yhx89757/CS-Notes/blob/master/notes/75.%20Sort%20Colors.md)
 <!-- GFM-TOC -->
 
 
