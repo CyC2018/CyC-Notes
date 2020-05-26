@@ -1,5 +1,8 @@
 <!-- GFM-TOC -->
 * [167. Two Sum II - Input array is sorted](https://github.com/yhx89757/CS-Notes/blob/master/notes/167.%20Two%20Sum%20II%20-%20Input%20array%20is%20sorted.md)
+* [15. 3Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/15.%203Sum.md)
+* [16. 3Sum Closest](https://github.com/yhx89757/CS-Notes/blob/master/notes/16.%203Sum%20Closest.md)
+* [18. 4Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/18.%204Sum.md)
 * [633. Sum of Square Numbers](https://github.com/yhx89757/CS-Notes/blob/master/notes/633.%20Sum%20of%20Square%20Numbers.md)
 * [345. Reverse Vowels of a String](https://github.com/yhx89757/CS-Notes/blob/master/notes/Reverse%20Vowels%20of%20a%20String.md)
 * [680. Valid Palindrome II](https://github.com/yhx89757/CS-Notes/blob/master/notes/680.%20Valid%20Palindrome%20II.md)
@@ -8,15 +11,11 @@
 * [524. Longest Word in Dictionary through Deleting](https://github.com/yhx89757/CS-Notes/blob/master/notes/524.%20Longest%20Word%20in%20Dictionary%20through%20Deleting.md)
 * [142. Linked List Cycle II](https://github.com/yhx89757/CS-Notes/blob/master/notes/142.%20Linked%20List%20Cycle%20II.md)
 * [202. Happy Number](https://github.com/yhx89757/CS-Notes/blob/master/notes/202.%20Happy%20Number.md)
-* [15. 3Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/15.%203Sum.md)
-* [16. 3Sum Closest](https://github.com/yhx89757/CS-Notes/blob/master/notes/16.%203Sum%20Closest.md)
-* [18. 4Sum](https://github.com/yhx89757/CS-Notes/blob/master/notes/18.%204Sum.md)
-* [11. Container With Most Water](https://github.com/yhx89757/CS-Notes/blob/master/notes/11.%20Container%20With%20Most%20Water.md)
 * [26. Remove Duplicates from Sorted Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/26.%20Remove%20Duplicates%20from%20Sorted%20Array.md)
 * [80. Remove Duplicates from Sorted Array II](https://github.com/yhx89757/CS-Notes/blob/master/notes/80.%20Remove%20Duplicates%20from%20Sorted%20Array%20II.md)
-* [30. Substring with Concatenation of All Words](https://github.com/yhx89757/CS-Notes/edit/master/notes/30.%20Substring%20with%20Concatenation%20of%20All%20Words.md)
-* [42. Trapping Rain Water](#4-链表的中间结点)
-* [75. Sort Colors](#4-链表的中间结点)
+* [11. Container With Most Water](https://github.com/yhx89757/CS-Notes/blob/master/notes/11.%20Container%20With%20Most%20Water.md)
+* [42. Trapping Rain Water](https://github.com/yhx89757/CS-Notes/blob/master/notes/42.%20Trapping%20Rain%20Water.md)
+* [75. Sort Colors](https://github.com/yhx89757/CS-Notes/blob/master/notes/75.%20Sort%20Colors.md)
 <!-- GFM-TOC -->
 
 
