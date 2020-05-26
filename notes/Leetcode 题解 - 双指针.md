@@ -14,7 +14,7 @@
 * [11. Container With Most Water](https://github.com/yhx89757/CS-Notes/blob/master/notes/11.%20Container%20With%20Most%20Water.md)
 * [26. Remove Duplicates from Sorted Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/26.%20Remove%20Duplicates%20from%20Sorted%20Array.md)
 * [80. Remove Duplicates from Sorted Array II](https://github.com/yhx89757/CS-Notes/blob/master/notes/80.%20Remove%20Duplicates%20from%20Sorted%20Array%20II.md)
-* [30. Substring with Concatenation of All Words](#4-链表的中间结点)
+* [30. Substring with Concatenation of All Words](https://github.com/yhx89757/CS-Notes/edit/master/notes/30.%20Substring%20with%20Concatenation%20of%20All%20Words.md)
 * [42. Trapping Rain Water](#4-链表的中间结点)
 * [75. Sort Colors](#4-链表的中间结点)
 <!-- GFM-TOC -->
