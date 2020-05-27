@@ -1,7 +1,7 @@
 <!-- GFM-TOC -->
 * [快速选择](#快速选择)
 * [堆排序](#堆排序)
-    * [215. Kth Largest Element in an Array](#1-kth-element)
+    * [215. Kth Largest Element in an Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/215.%20Kth%20Largest%20Element%20in%20an%20Array.md)
 * [桶排序](#桶排序)
     * [347. Top K Frequent Elements](#1-出现频率最多的-k-个元素)
     * [451. Sort Characters By Frequency](#2-按照字符出现次数对字符串排序)
@@ -120,23 +120,23 @@ Given [1,1,1,2,2,3] and k = 2, return [1,2].
 
 ```java
 class Solution {
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> count = new HashMap<>();
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
         // 使用字典，统计每个元素出现的次数，元素为键，元素出现的次数为值
-        for (int num : nums) count.put(num, count.getOrDefault(num, 0) + 1);
+        for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
         // 桶排序
         // 将频率作为数组下标，对于出现频率不同的数字集合，存入对应的数组下标
         List<Integer>[] arr = new List[nums.length + 1];
-        for (int key : count.keySet()) {
-            if (arr[count.get(key)] == null) arr[count.get(key)] = new ArrayList<>();
-            arr[count.get(key)].add(key);
+        for (int key : map.keySet()) {
+            if (arr[map.get(key)] == null) arr[map.get(key)] = new ArrayList<>();
+            arr[map.get(key)].add(key);
         }
         // 倒序遍历数组获取出现顺序从大到小的排列
         List<Integer> res = new ArrayList<>();
         for (int i = arr.length - 1; i >= 0 && res.size() < k; i--) {
-            if (arr[i] != null) res.addAll(arr[i]); 
+            if (arr[i] != null) res.addAll(arr[i]);
         }
-        return res;
+        return res.stream().mapToInt(i -> i).toArray();
     }
 }
 ```
@@ -145,21 +145,19 @@ class Solution {
 
 ```java
 class Solution {
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> count = new HashMap<>();
-        for (int num : nums) count.put(num, count.getOrDefault(num, 0) + 1);
-        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> (count.get(a) - count.get(b)));
-        for (int val : count.keySet()) {
-            heap.add(val);
-            if (heap.size() > k) {
-                heap.poll();
-            }
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
+        PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> (map.get(a) - map.get(b)));
+        for (int key : map.keySet()) {
+            heap.add(key);
+            if (heap.size() > k) heap.poll();
         }
         List<Integer> res = new ArrayList<>();
         while (!heap.isEmpty()) {
             res.add(heap.poll());
         }
-        return res;
+        return res.stream().mapToInt(i -> i).toArray();
     }
 }
 ```
