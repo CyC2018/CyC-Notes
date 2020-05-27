@@ -3,8 +3,8 @@
 * [堆排序](#堆排序)
     * [215. Kth Largest Element in an Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/215.%20Kth%20Largest%20Element%20in%20an%20Array.md)
 * [桶排序](#桶排序)
-    * [347. Top K Frequent Elements](#1-出现频率最多的-k-个元素)
-    * [451. Sort Characters By Frequency](#2-按照字符出现次数对字符串排序)
+    * [347. Top K Frequent Elements](https://github.com/yhx89757/CS-Notes/blob/master/notes/347.%20Top%20K%20Frequent%20Elements.md)
+    * [451. Sort Characters By Frequency](https://github.com/yhx89757/CS-Notes/blob/master/notes/451.%20Sort%20Characters%20By%20Frequency.md)
 * [荷兰国旗问题](#荷兰国旗问题)
     * [75. Sort Colors](https://github.com/yhx89757/CS-Notes/blob/master/notes/75.%20Sort%20Colors.md)
 <!-- GFM-TOC -->
@@ -65,25 +65,24 @@ class Solution {
 }
 ```
 
-**快速选择**  ：时间复杂度 O(N)，空间复杂度 O(1)
+**快速选择**  ：**平均**时间复杂度 O(N)，空间复杂度 O(1)
 
 ```java
 class Solution {
     public int findKthLargest(int[] nums, int k) {
         int left = 0, right = nums.length - 1;
-        int target = nums.length - k;
+        int targetIndex = nums.length - k;
         while (left < right) {
-            int piv = partition(nums, left, right);
-            if (piv == target) break;
-            else if (piv < target) left = piv + 1;
-            else right = piv - 1;
+            int index = partition(nums, left, right);
+            if (index == targetIndex) break;
+            else if (index < targetIndex) left = index + 1;
+            else right = index - 1;
         }
-        return nums[target];
+        return nums[targetIndex];
     }
-    
     private int partition(int[] nums, int left, int right) {
-        int pVal = nums[right];
         int leftwall = left;
+        int pVal = nums[right];
         for (int i = left; i < right; i++) {
             if (nums[i] < pVal) {
                 swap(nums, i, leftwall);
@@ -93,7 +92,6 @@ class Solution {
         swap(nums, right, leftwall);
         return leftwall;
     }
-    
     private void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
@@ -185,20 +183,20 @@ class Solution {
     public String frequencySort(String s) {
         if (s == null || s.length() == 0) return "";
         // 用哈希表计数
-        HashMap<Character, Integer> count = new HashMap<>();
-        for (char c : s.toCharArray()) count.put(c, count.getOrDefault(c, 0) + 1);
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) map.put(c, map.getOrDefault(c, 0) + 1);
         // 桶排序，根据频率把字符放入相应桶中
         List<Character>[] arr = new List[s.length() + 1];
-        for (char key : count.keySet()) {
-            if (arr[count.get(key)] == null) arr[count.get(key)] = new ArrayList<>();
-            arr[count.get(key)].add(key);
+        for (char key : map.keySet()) {
+            if (arr[map.get(key)] == null) arr[map.get(key)] = new ArrayList<>();
+            arr[map.get(key)].add(key);
         }
         // 将字符按频率从高到低存入结果中
         StringBuilder res = new StringBuilder();
         for (int i = arr.length - 1; i >= 0; i--) {
             if (arr[i] != null) {
                 for (char c : arr[i]) {
-                    for (int j = 0; j < count.get(c); j++) {
+                    for (int j = 0; j < map.get(c); j++) {
                         res.append(c);
                     }
                 }
@@ -216,16 +214,16 @@ class Solution {
     public String frequencySort(String s) {
         if (s == null || s.length() == 0) return "";
         // 哈希表计数
-        HashMap<Character, Integer> count = new HashMap<>();
-        for (char c : s.toCharArray()) count.put(c, count.getOrDefault(c, 0) + 1);
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : s.toCharArray()) map.put(c, map.getOrDefault(c, 0) + 1);
         // 根据哈希表中的计数值建立字符的最大堆
-        PriorityQueue<Character> heap = new PriorityQueue<>((a, b) -> (count.get(b) - count.get(a)));
-        for (char key : count.keySet()) heap.add(key);
+        PriorityQueue<Character> heap = new PriorityQueue<>((a, b) -> (map.get(b) - map.get(a)));
+        for (char key : map.keySet()) heap.add(key);
         // 频率从大到小将字符存入答案中
         StringBuilder res = new StringBuilder();
         while (!heap.isEmpty()) {
             char c = heap.poll();
-            for (int i = 0; i < count.get(c); i++) {
+            for (int i = 0; i < map.get(c); i++) {
                 res.append(c);
             }
         }
