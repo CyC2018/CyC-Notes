@@ -2,13 +2,13 @@
 * [69. Sqrt(x)](https://github.com/yhx89757/CS-Notes/edit/master/notes/69.%20Sqrt(x).md)
 * [744. Find Smallest Letter Greater Than Target](https://github.com/yhx89757/CS-Notes/blob/master/notes/744.%20Find%20Smallest%20Letter%20Greater%20Than%20Target.md)
 * [540. Single Element in a Sorted Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/540.%20Single%20Element%20in%20a%20Sorted%20Array.md)
-* [278. First Bad Version](#4-第一个错误的版本)
+* [278. First Bad Version](https://github.com/yhx89757/CS-Notes/blob/master/notes/278.%20First%20Bad%20Version.md)
 * [153. Find Minimum in Rotated Sorted Array](#5-旋转数组的最小数字)
 * [327. Count of Range Sum](#6-查找区间)
 * [35. Search Insert Position](#6-查找区间)
 * [33. Search in Rotated Sorted Array](#6-查找区间)
 * [81. Search in Rotated Sorted Array II](#6-查找区间)
-* [34. Find First and Last Position of Element in Sorted Array](#6-查找区间)
+* [34. Find First and Last Position of Element in Sorted Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/34.%20Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array.md)
 * [4. Median of Two Sorted Arrays](https://github.com/yhx89757/CS-Notes/blob/master/notes/4.%20Median%20of%20Two%20Sorted%20Arrays.md)
 <!-- GFM-TOC -->
 
@@ -345,15 +345,11 @@ Output: 1
 ```java
 class Solution {
     public int findMin(int[] nums) {
-        int left = 0;
-        int right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         while (left < right - 1) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] > nums[right]) {
-                left = mid;
-            } else {
-                right = mid;
-            }
+            if (nums[mid] > nums[right]) left = mid;
+            else right = mid;
         }
         return nums[left] < nums[right] ? nums[left] : nums[right];
     }
