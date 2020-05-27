@@ -1,7 +1,7 @@
 <!-- GFM-TOC -->
-* [69. Sqrt(x)](#1-求开方)
-* [744. Find Smallest Letter Greater Than Target](#2-大于给定元素的最小元素)
-* [540. Single Element in a Sorted Array](#3-有序数组的-single-element)
+* [69. Sqrt(x)](https://github.com/yhx89757/CS-Notes/edit/master/notes/69.%20Sqrt(x).md)
+* [744. Find Smallest Letter Greater Than Target](https://github.com/yhx89757/CS-Notes/blob/master/notes/744.%20Find%20Smallest%20Letter%20Greater%20Than%20Target.md)
+* [540. Single Element in a Sorted Array](https://github.com/yhx89757/CS-Notes/blob/master/notes/540.%20Single%20Element%20in%20a%20Sorted%20Array.md)
 * [278. First Bad Version](#4-第一个错误的版本)
 * [153. Find Minimum in Rotated Sorted Array](#5-旋转数组的最小数字)
 * [327. Count of Range Sum](#6-查找区间)
@@ -312,7 +312,7 @@ class Solution {
 
 题目描述：给定一个元素 n 代表有 [1, 2, ..., n] 版本，在第 x 位置开始出现错误版本，导致后面的版本都错误。可以调用 isBadVersion(int x) 知道某个版本是否错误，要求找到第一个错误的版本。
 
-相当于模板里寻找左边界，因为一定有解，所以不用最后检查右指针的合法性。
+相当于模板里寻找左边界，因为一定有解，所以不用最后检查左指针的合法性。
 
 ```java
 public class Solution extends VersionControl {
