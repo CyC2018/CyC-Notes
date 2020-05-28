@@ -11,8 +11,8 @@
 * [53. Maximum Subarray](#10-子数组最大的和)
 * [763. Partition Labels](https://github.com/yhx89757/CS-Notes/blob/master/notes/763.%20Partition%20Labels.md)
 * [12. Integer to Roman](https://github.com/yhx89757/CS-Notes/blob/master/notes/12.%20Integer%20to%20Roman.md)
-* [55. Jump Game](#11-分隔字符串使同种字符出现在一起)
-* [45. Jump Game II](#11-分隔字符串使同种字符出现在一起)
+* [55. Jump Game](https://github.com/yhx89757/CS-Notes/blob/master/notes/55.%20Jump%20Game.md)
+* [45. Jump Game II](https://github.com/yhx89757/CS-Notes/blob/master/notes/45.%20Jump%20Game%20II.md)
 <!-- GFM-TOC -->
 
 
