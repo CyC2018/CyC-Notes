@@ -12,6 +12,7 @@
 * [85. Maximal Rectangle](#6-循环数组中比当前元素大的下一个元素)
 * [394. Decode String](https://github.com/yhx89757/CS-Notes/blob/master/notes/394.%20Decode%20String.md)
 * [71. Simplify Path](https://github.com/yhx89757/CS-Notes/blob/master/notes/71.%20Simplify%20Path.md)
+* [224. Basic Calculator](https://github.com/yhx89757/CS-Notes/blob/master/notes/224.%20Basic%20Calculator.md)
 <!-- GFM-TOC -->
 
 单调栈文章：
