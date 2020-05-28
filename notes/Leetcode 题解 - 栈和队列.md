@@ -13,6 +13,8 @@
 * [394. Decode String](https://github.com/yhx89757/CS-Notes/blob/master/notes/394.%20Decode%20String.md)
 * [71. Simplify Path](https://github.com/yhx89757/CS-Notes/blob/master/notes/71.%20Simplify%20Path.md)
 * [224. Basic Calculator](https://github.com/yhx89757/CS-Notes/blob/master/notes/224.%20Basic%20Calculator.md)
+* [227. Basic Calculator II](https://github.com/yhx89757/CS-Notes/blob/master/notes/227.%20Basic%20Calculator%20II.md)
+* [772. Basic Calculator III](https://github.com/yhx89757/CS-Notes/blob/master/notes/772.%20Basic%20Calculator%20III.md)
 <!-- GFM-TOC -->
 
 单调栈文章：
