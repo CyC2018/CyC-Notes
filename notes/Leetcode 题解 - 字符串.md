@@ -8,6 +8,8 @@
 * [12. Integer to Roman](https://github.com/yhx89757/CS-Notes/blob/master/notes/12.%20Integer%20to%20Roman.md)
 * [13. Roman to Integer](https://github.com/yhx89757/CS-Notes/blob/master/notes/13.%20Roman%20to%20Integer.md)
 * [273. Integer to English Words](https://github.com/yhx89757/CS-Notes/blob/master/notes/273.%20Integer%20to%20English%20Words.md)
+* [794. Valid Tic-Tac-Toe State](https://github.com/yhx89757/CS-Notes/blob/master/notes/794.%20Valid%20Tic-Tac-Toe%20State.md)
+* [1275. Find Winner on a Tic Tac Toe Game](https://github.com/yhx89757/CS-Notes/blob/master/notes/1275.%20Find%20Winner%20on%20a%20Tic%20Tac%20Toe%20Game.md)
 <!-- GFM-TOC -->
 
 
