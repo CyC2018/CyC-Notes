@@ -30,14 +30,14 @@
     * [538. Convert BST to Greater Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/538.%20Convert%20BST%20to%20Greater%20Tree.md) [把二叉查找树每个节点的值都加上比它大的节点的值](#3-把二叉查找树每个节点的值都加上比它大的节点的值)
     * [235. Lowest Common Ancestor of a Binary Search Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/235.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree.md) [二叉查找树的最近公共祖先](#4-二叉查找树的最近公共祖先)
     * [236. Lowest Common Ancestor of a Binary Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree.md) [二叉树的最近公共祖先](#5-二叉树的最近公共祖先)
-    * [108. Convert Sorted Array to Binary Search Tree]() [从有序数组中构造二叉查找树](#6-从有序数组中构造二叉查找树)
-    * [109. Convert Sorted List to Binary Search Tree]() [根据有序链表构造平衡的二叉查找树](#7-根据有序链表构造平衡的二叉查找树)
-    * [653. Two Sum IV - Input is a BST]() [在二叉查找树中寻找两个节点，使它们的和为一个给定值](#8-在二叉查找树中寻找两个节点，使它们的和为一个给定值)
-    * [530. Minimum Absolute Difference in BST]() [在二叉查找树中查找两个节点之差的最小绝对值](#9-在二叉查找树中查找两个节点之差的最小绝对值)
-    * [501. Find Mode in Binary Search Tree]() [寻找二叉查找树中出现次数最多的值](#10-寻找二叉查找树中出现次数最多的值)
+    * [108. Convert Sorted Array to Binary Search Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/108.%20Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree.md) [从有序数组中构造二叉查找树](#6-从有序数组中构造二叉查找树)
+    * [109. Convert Sorted List to Binary Search Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/109.%20Convert%20Sorted%20List%20to%20Binary%20Search%20Tree.md) [根据有序链表构造平衡的二叉查找树](#7-根据有序链表构造平衡的二叉查找树)
+    * [653. Two Sum IV - Input is a BST](https://github.com/yhx89757/CS-Notes/blob/master/notes/653.%20Two%20Sum%20IV%20-%20Input%20is%20a%20BST.md) [在二叉查找树中寻找两个节点，使它们的和为一个给定值](#8-在二叉查找树中寻找两个节点，使它们的和为一个给定值)
+    * [530. Minimum Absolute Difference in BST](https://github.com/yhx89757/CS-Notes/blob/master/notes/530.%20Minimum%20Absolute%20Difference%20in%20BST.md) [在二叉查找树中查找两个节点之差的最小绝对值](#9-在二叉查找树中查找两个节点之差的最小绝对值)
+    * [501. Find Mode in Binary Search Tree](https://github.com/yhx89757/CS-Notes/blob/master/notes/501.%20Find%20Mode%20in%20Binary%20Search%20Tree.md) [寻找二叉查找树中出现次数最多的值](#10-寻找二叉查找树中出现次数最多的值)
 * [Trie](#trie)
-    * [208. Implement Trie (Prefix Tree)]() [实现一个 Trie](#1-实现一个-trie)
-    * [677. Map Sum Pairs]() [实现一个 Trie，用来求前缀和](#2-实现一个-trie，用来求前缀和)
+    * [208. Implement Trie (Prefix Tree)](https://github.com/yhx89757/CS-Notes/blob/master/notes/208.%20Implement%20Trie%20(Prefix%20Tree).md) [实现一个 Trie](#1-实现一个-trie)
+    * [677. Map Sum Pairs](https://github.com/yhx89757/CS-Notes/blob/master/notes/677.%20Map%20Sum%20Pairs.md) [实现一个 Trie，用来求前缀和](#2-实现一个-trie，用来求前缀和)
 <!-- GFM-TOC -->
 
 # 递归
@@ -1124,7 +1124,7 @@ Trie，又称前缀树或字典树，用于判断字符串是否存在或者是�
 [Leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/description/) / [力扣](https://leetcode-cn.com/problems/implement-trie-prefix-tree/description/)
 
 ```java
-class Trie{
+class Trie {
     private class Node {
         private boolean isEnd;
         private Node[] children = new Node[26];
