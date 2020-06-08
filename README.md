@@ -2,7 +2,6 @@
     <a href="https://gitstar-ranking.com/repositories"> <img src="https://badgen.net/badge/Rank/20?icon=github&color=4ab8a1"></a>
     <a href="assets/download.md"> <img src="https://badgen.net/badge/OvO/%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD?icon=telegram&color=4ab8a1"></a>
     <a href="https://cyc2018.github.io/CS-Notes"> <img src="https://badgen.net/badge/CyC/%E5%9C%A8%E7%BA%BF%E9%98%85%E8%AF%BB?icon=sourcegraph&color=4ab8a1"></a>
-    <a href="#微信公众号"> <img src="https://badgen.net/badge/%e5%85%ac%e4%bc%97%e5%8f%b7/yhx89757?icon=rss&color=4ab8a1"></a>
 </div>
 <br>
 
@@ -79,6 +78,11 @@
 
 - [代码可读性](https://github.com/yhx89757/CS-Notes/blob/master/notes/代码可读性.md)
 - [代码风格规范](https://github.com/yhx89757/CS-Notes/blob/master/notes/代码风格规范.md)
+
+## :memo: 职场心得
+- [新人入职](https://github.com/yhx89757/CS-Notes/blob/master/notes/新人入职.md)
+- [晋升方法](https://github.com/yhx89757/CS-Notes/blob/master/notes/晋升方法.md)
+- [跳槽心得](https://github.com/yhx89757/CS-Notes/blob/master/notes/跳槽心得.md)
 
 ## :memo: 后记
 
