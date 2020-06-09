@@ -74,6 +74,7 @@
 - [代码风格规范](https://github.com/yhx89757/CS-Notes/blob/master/notes/代码风格规范.md)
 
 ## 职场心得
+- [身份问题](https://github.com/yhx89757/CS-Notes/blob/master/notes/身份问题.md)
 - [找工求职](https://github.com/yhx89757/CS-Notes/blob/master/notes/找工求职.md)
 - [新人入职](https://github.com/yhx89757/CS-Notes/blob/master/notes/新人入职.md)
 - [公司文化](https://github.com/yhx89757/CS-Notes/blob/master/notes/公司文化.md)
