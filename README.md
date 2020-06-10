@@ -81,6 +81,7 @@
 - [晋升方法](https://github.com/yhx89757/CS-Notes/blob/master/notes/晋升方法.md)
 - [跳槽转组心得](https://github.com/yhx89757/CS-Notes/blob/master/notes/跳槽转组心得.md)
 - [行业现状分析](https://github.com/yhx89757/CS-Notes/blob/master/notes/行业现状分析.md)
+- [杂项](https://github.com/yhx89757/CS-Notes/blob/master/notes/杂项.md)
 
 ## :memo: 后记
 
