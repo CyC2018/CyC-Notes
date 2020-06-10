@@ -80,6 +80,7 @@
 - [公司文化](https://github.com/yhx89757/CS-Notes/blob/master/notes/公司文化.md)
 - [晋升方法](https://github.com/yhx89757/CS-Notes/blob/master/notes/晋升方法.md)
 - [跳槽转组心得](https://github.com/yhx89757/CS-Notes/blob/master/notes/跳槽转组心得.md)
+- [行业现状分析](https://github.com/yhx89757/CS-Notes/blob/master/notes/行业现状分析.md)
 
 ## :memo: 后记
 
