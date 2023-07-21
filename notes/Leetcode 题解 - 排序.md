@@ -15,37 +15,25 @@
 用于求解   **Kth Element**   问题，也就是第 K 个元素的问题。
 
 可以使用快速排序的 partition() 进行实现。需要先打乱数组，否则最坏情况下时间复杂度为 O(N<sup>2</sup>)。
-```java
-class Solution {
-    public int findKthLargest(int[] nums, int k) {
-        int left = 0, right = nums.length - 1;
-        int targetIndex = nums.length - k;
-        while (left < right) {
-            int index = partition(nums, left, right);
-            if (index == targetIndex) break;
-            else if (index < targetIndex) left = index + 1;
-            else right = index - 1;
-        }
-        return nums[targetIndex];
-    }
-    private int partition(int[] nums, int left, int right) {
-        int leftwall = left;
-        int pVal = nums[right];
-        for (int i = left; i < right; i++) {
-            if (nums[i] < pVal) {
-                swap(nums, i, leftwall);
-                leftwall++;
-            }
-        }
-        swap(nums, right, leftwall);
-        return leftwall;
-    }
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-}
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        return self.quickSort(nums, 0, len(nums) - 1)
+    def quickSort(self, nums: List[int], left: int, right: int) -> List[int]:
+        if left < right:
+            index = self.partition(nums, left, right)
+            self.quickSort(nums, left, index - 1)
+            self.quickSort(nums, index + 1, right)
+        return nums
+    def partition(self, nums: List[int], left: int, right: int) -> List[int]:
+        leftwall = left
+        p_val = nums[right]
+        for i in range(left, right):
+            if (nums[i] < p_val):
+                nums[i], nums[leftwall] = nums[leftwall], nums[i]
+                leftwall += 1
+        nums[leftwall], nums[right] = nums[right], nums[leftwall]
+        return leftwall
 ```
 
 # 堆排序
